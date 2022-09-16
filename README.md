@@ -10,7 +10,7 @@ Symfony<br>
 Doctrine<br>
 Java JDK: 17  <br>
 PHP: 7.4
-
+ 
 
 
 ## ⚙️ Info
