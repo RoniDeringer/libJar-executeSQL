@@ -1,4 +1,6 @@
 # 🚀 Biblioteca JAVA
+Projeto utilizando padrão **generics** na escolha do banco de dados. Sendo possível implementar a utilização de outro SGBD
+
 Projeto realizado na disciplina de Programação Orientada a Objeto 2.<br>
 Orientador: [**Rodrigo Curvêllo**](http://buscatextual.cnpq.br/buscatextual/visualizacv.do)
 
@@ -12,10 +14,10 @@ Java JDK: 17  <br>
 PHP: 7.4
  
 
-
 ## ⚙️ Info
-Projeto utilizando padrão **generics** na escolha do banco de dados. Sendo possível implementar a utilização de outro SGBD
 
+Dentro da pasta web:<br>
+`symfony server:start` 
 
 
 
