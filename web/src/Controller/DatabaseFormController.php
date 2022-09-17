@@ -4,19 +4,35 @@ namespace App\Controller;
 
 use App\Entity\Database;
 use App\Form\DatabaseForm;
+use App\Repository\DatabaseRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Tools\EntityRepositoryGenerator;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-
-require_once('DatabaseFormController.php');
-
-$teste = new \App\Controller\DatabaseFormController();
-$teste->teste();
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Form\FormTypeInterface;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class DatabaseFormController extends AbstractController
 {
     /**
-     * @Route("/", name="database_index")
+     * @Route("/form", name="formulario")
+     */
+    public function index()
+    {
+        $form = $this->createForm(DatabaseForm::class);
+        $data['titulo'] = 'Add novo banco';
+        $data['form'] = $form;
+
+        return $this->renderForm('form/index.html.twig', $data);
+
+        //5 . 18:00
+    }
+
+
+    /**
+     * @Route("/teste", name="database_index")
     */
     public function teste()
     {
@@ -56,19 +72,5 @@ class DatabaseFormController extends AbstractController
         $json = json_encode($database);
         $bytes = file_put_contents("myfile.json", $json);
         echo $json;
-    }
-
-    /**
-     * @Route("/", name="database_list")
-    */
-    public function list()
-    {
-        $form = $this->createForm(DatabaseForm::class);
-        $data['novo banco'] = 'Add novo banco';
-        $data['form'] = $form;
-
-        return $this->renderForm('database/form.html.twig', $data);
-
-        //5 . 18:00
     }
 }
