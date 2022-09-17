@@ -17,7 +17,7 @@ PHP: 7.4
 ## ⚙️ Info
 
 Dentro da pasta web:<br>
-`symfony server:start` 
+`$ symfony server:start` 
 
 
 
