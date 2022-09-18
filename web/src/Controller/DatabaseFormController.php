@@ -83,8 +83,13 @@ class DatabaseFormController extends AbstractController
         $database->setTabela($tabela);
 
 
+        $json = $database->convertJson($database);
+        $database->downloadJson($json);
 
-        $database->exportJson($database);
+
+        // var_dump($database);
+
+        // $database->exportJson($database);
 
 
 

@@ -2,10 +2,11 @@
 
 namespace App\Entity;
 
-use App\Repository\DatabaseRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Encoder\JsonEncoder;
+use Symfony\Component\Serializer\Encoder\XmlEncoder;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
+use Symfony\Component\Serializer\Serializer;
 
 /**
  * @ORM\Entity(repositoryClass=DatabaseRepository::class)
@@ -44,15 +45,16 @@ class Database
 
     /**
      * @ORM\OneToMany(targetEntity=Tabela::class, mappedBy="database")
+     *     * @var Tabela[]|\Doctrine\Common\Collections\ArrayCollection
      */
     public $tabela;
 
     public function __construct()
     {
-        $this->tabela = new ArrayCollection();
+        $this->tabela = array();
     }
 
-    public function getNome(): ?string
+    public function getNome()
     {
         return $this->nome;
     }
@@ -62,7 +64,7 @@ class Database
         return $this->nome = $nome;
     }
 
-    public function getUrl(): ?string
+    public function getUrl()
     {
         return $this->url;
     }
@@ -72,7 +74,7 @@ class Database
         return $this->url = $url;
     }
 
-    public function getPorta(): ?int
+    public function getPorta()
     {
         return $this->porta;
     }
@@ -82,7 +84,7 @@ class Database
          return $this->porta = $porta;
     }
 
-    public function getUsuario(): ?string
+    public function getUsuario()
     {
         return $this->usuario;
     }
@@ -92,7 +94,7 @@ class Database
         return $this->usuario = $usuario;
     }
 
-    public function getSenha(): ?string
+    public function getSenha()
     {
         return $this->senha;
     }
@@ -104,7 +106,7 @@ class Database
         return $this;
     }
 
-    public function getSgbd(): ?string
+    public function getSgbd()
     {
         return $this->sgbd;
     }
@@ -114,8 +116,8 @@ class Database
         return $this->sgbd = $sgbd;
     }
 
-    /**
-     * @return Collection<int, Tabela>
+     /**
+     * @return Tabela[]
      */
     public function getTabela()
     {
@@ -128,34 +130,8 @@ class Database
     }
 
 
-    // public function addTabela(Tabela $tabela)
-    // {
-    //     if (!$this->tabela->contains($tabela)) {
-    //         $this->tabela[] = $tabela;
-    //         $tabela->setDatabase($this);
-    //     }
-
-    //     return $this;
-    // }
-
-    // public function removeTabela(Tabela $tabela): self
-    // {
-    //     if ($this->tabela->removeElement($tabela)) {
-    //         // set the owning side to null (unless already changed)
-    //         if ($tabela->getDatabase() === $this) {
-    //             $tabela->setDatabase(null);
-    //         }
-    //     }
-
-    //     return $this;
-    // }
-
-
-
-    public function exportJson($object)
+    public function downloadJson($json)
     {
-        $json = json_encode($object);
-
         $filename = 'generated_json_' . date('Y-m-d H:i:s');
 
         // Force download .json file with JSON in it
@@ -167,5 +143,14 @@ class Database
 
         print $json;
         exit;
+    }
+
+    public function convertJson($object)
+    {
+        $encoders = [new XmlEncoder(), new JsonEncoder()];
+        $normalizers = [new ObjectNormalizer()];
+        $serializer = new Serializer($normalizers, $encoders);
+
+        return $serializer->serialize($object, 'json');
     }
 }

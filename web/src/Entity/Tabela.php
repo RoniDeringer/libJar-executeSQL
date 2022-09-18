@@ -18,13 +18,23 @@ class Tabela
     public $nome;
 
     /**
-     * @ORM\OneToMany(targetEntity=Coluna::class, mappedBy="tabela")
+     * @ORM\OneToMany(targetEntity="Coluna", mappedBy="tabela")
+     * @var Coluna[]|\Doctrine\Common\Collections\ArrayCollection
      */
-    public $coluna = [];
+    public $coluna;
+
+
+
+ /**
+     * @OneToMany(targetEntity="PessoaContato", mappedBy="pessoa", cascade={"persist", "remove", "refresh"})
+     * @var PessoaContato[]|\Doctrine\Common\Collections\ArrayCollection
+     */
+    protected $pessoaContato;
+
 
     public function __construct()
     {
-        $this->coluna = new ArrayCollection();
+        $this->coluna = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     public function getNome()
@@ -36,8 +46,9 @@ class Tabela
     {
         return $this->nome = $nome;
     }
-    /**
-     * @return Collection<int, Coluna>
+
+     /**
+     * @return Coluna[]
      */
     public function getColuna()
     {
