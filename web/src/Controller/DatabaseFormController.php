@@ -17,7 +17,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 class DatabaseFormController extends AbstractController
 {
     /**
-     * @Route("/form", name="formulario")
+     * @Route("/", name="formulario")
      */
     public function index(Request $request)
     {
