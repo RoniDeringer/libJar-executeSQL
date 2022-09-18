@@ -14,7 +14,7 @@ ___
 [PHP 7.4](https://www.php.net/releases/7_4_0.php)
  
  ___
-##    🎯 Proposta do projeto
+## <center> 🎯 Proposta do projeto </center>
 <div>
 <a align="right" href="https://app.daily.dev/CarlosArthur"><img align="right" src="web/img/diagrama_poo2.png" width="400"  height="750" alt="Diagrama do projeto"/></a>
 <br>

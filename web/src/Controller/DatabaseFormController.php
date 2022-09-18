@@ -29,7 +29,7 @@ class DatabaseFormController extends AbstractController
             //proxima view  MEU OBJETO POPULADO, VAI JUNTO?
             $url = '/form/tabela';
             header('Location: ' . $url);
-                exit;
+            exit;
         }
 
 
@@ -39,5 +39,79 @@ class DatabaseFormController extends AbstractController
         return $this->renderForm('form/database.html.twig', $data);
 
         //5 . 18:00
+    }
+
+
+    /**
+     * @Route("/teste", name="database_index")
+    */
+    public function teste()
+    {
+
+        $database = new Database();
+        $tabela = new \App\Entity\Tabela();
+        $coluna = new \App\Entity\Coluna();
+        $coluna2 = new \App\Entity\Coluna();
+
+
+
+        //COLUNAS
+        $coluna->setNome('idTESTE');
+        $coluna->setTipo('int');
+        $coluna->setIsNotNull(true);
+
+        $coluna2->setNome('nome');
+        $coluna2->setTipo('varchar(45)');
+        $coluna2->setIsNotNull(true);
+
+
+        //TABELA
+
+        $tabela->setNome('alunos');
+        $tabela->addColuna($coluna);
+        $tabela->addColuna($coluna2);
+
+
+        //DATABASE
+
+        $database->setNome('alunos_ifc');
+        $database->setPorta(3000);
+        $database->setUrl('3000');
+        $database->setUsuario('root');
+        $database->setSenha('12345');
+        $database->setSgbd('MYSQL');
+        $database->addTabela($tabela);
+
+
+        $json = json_encode($coluna);
+
+        echo($json);
+
+
+
+
+
+        $form = $this->createForm(DatabaseForm::class, $database);
+
+        $data['form'] = $form;
+        $data['titulo'] = 'testeform';
+
+        return $this->renderForm('form/database.html.twig', $data);
+
+
+
+
+
+
+        // $bytes = file_put_contents("myfile.json", $json);
+
+
+    //https://github.com/karolispx/php-generate-json-file/blob/master/generate-json.php
+    //https://stackoverflow.com/questions/17903484/symfony2-how-to-force-download-in-ajax-return-json-datatype
+    }
+
+    public function objectToJson($objeto)
+    {
+        return json_encode($objeto);
     }
 }
