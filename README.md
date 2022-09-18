@@ -15,17 +15,26 @@ ___
  
  ___
 ##    🎯 Proposta do projeto
-<br>
 <div>
 <a align="right" href="https://app.daily.dev/CarlosArthur"><img align="right" src="web/img/diagrama_poo2.png" width="400"  height="750" alt="Diagrama do projeto"/></a>
+<br>
 
-O trabalho será desenvolvido em duas etapas:
+#### O trabalho será desenvolvido em duas etapas:
+<br>
 
-1ª etapa será construir um sistema WEB onde terá 2 telas:
-primeira tela será um formulário solicitando as informações do banco - _nome, url, porta, user, senha e sgbd_. A segunda tela será sobre as tabelas e as colunas (pode haver _n_ tabelas e cada tabela poderá ter _n_ colunas).
+<br>
 
-2ª etapa será desenvolver uma biblioteca em JAVA. Que irá mapear os campos do json e irá abrir uma conexão com o banco para salvar os dados conforme as informações do banco. Deverá usar o padrão _genercis_ onde futuramente poderá ser implementado outros sistemas de gerenciamento de banco de dados.
-
+**1ª etapa** será construir um sistema WEB onde terá 2 telas de formulário:<br>
+primeira tela será um formulário solicitando as informações do banco - _nome do database, url, porta, user, senha e sgbd (tendo como padrão o MySQL)_. <br>A segunda tela será sobre as tabelas e as colunas (pode haver _n_ tabelas e cada tabela poderá ter _n_ colunas). Informações sobre a tabela será somente o nome, e da coluna será o _nome da coluna, o tipo do dado e poderá ser null_
+<br>
+<br>
+<br>
+**2ª etapa** será desenvolver uma biblioteca em JAVA. Que irá mapear os campos do json e irá abrir uma conexão com o banco (já existente) para salvar os dados conforme as informações do banco. Deverá usar o padrão _genercis_ onde futuramente poderá ser implementado outros sistemas de gerenciamento de banco de dados (como postegreesql, mongodb, sqlserver...).
+<br>
+<br>
+<br><br>
+<br>
+<br>
 
 </div>
 <br />
