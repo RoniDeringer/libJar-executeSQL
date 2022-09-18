@@ -20,22 +20,11 @@ class Tabela
     /**
      * @ORM\OneToMany(targetEntity=Coluna::class, mappedBy="tabela")
      */
-    public $coluna;
-
-    /**
-     * @ORM\ManyToOne(targetEntity=Database::class, inversedBy="tabela")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    public $database;
+    public $coluna = [];
 
     public function __construct()
     {
         $this->coluna = new ArrayCollection();
-    }
-
-    public function getId(): ?int
-    {
-        return $this->id;
     }
 
     public function getNome()
@@ -58,17 +47,5 @@ class Tabela
     public function setColuna($coluna)
     {
         $this->coluna = $coluna;
-    }
-
-    public function getDatabase()
-    {
-        return $this->database;
-    }
-
-    public function setDatabase(?Database $database)
-    {
-        $this->database = $database;
-
-        return $this;
     }
 }

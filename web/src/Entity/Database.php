@@ -52,11 +52,6 @@ class Database
         $this->tabela = new ArrayCollection();
     }
 
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
-
     public function getNome(): ?string
     {
         return $this->nome;
@@ -161,7 +156,7 @@ class Database
     {
         $json = json_encode($object);
 
-        $filename = 'generated_json_' . date('Y-m-d');
+        $filename = 'generated_json_' . date('Y-m-d H:i:s');
 
         // Force download .json file with JSON in it
         header("Content-type: application/vnd.ms-excel");

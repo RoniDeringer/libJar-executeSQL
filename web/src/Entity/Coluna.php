@@ -25,16 +25,6 @@ class Coluna
      */
     public $isNotNull;
 
-    /**
-     * @ORM\ManyToOne(targetEntity=Tabela::class, inversedBy="coluna")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    public $tabela;
-
-    public function getId()
-    {
-        return $this->id;
-    }
 
     public function getNome()
     {
@@ -64,15 +54,5 @@ class Coluna
     public function setIsNotNull(bool $isNotNull)
     {
         return $this->isNotNull = $isNotNull;
-    }
-
-    public function getTabela()
-    {
-        return $this->tabela;
-    }
-
-    public function setTabela(?Tabela $tabela)
-    {
-        return $this->tabela = $tabela;
     }
 }

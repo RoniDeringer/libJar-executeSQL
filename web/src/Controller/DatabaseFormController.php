@@ -56,11 +56,11 @@ class DatabaseFormController extends AbstractController
 
 
         //COLUNAS
-        $coluna->setNome('idTESTE');
+        $coluna->setNome('coluna 1');
         $coluna->setTipo('int');
         $coluna->setIsNotNull(true);
 
-        $coluna2->setNome('nome');
+        $coluna2->setNome('coluna 2');
         $coluna2->setTipo('varchar(45)');
         $coluna2->setIsNotNull(true);
 
@@ -83,7 +83,6 @@ class DatabaseFormController extends AbstractController
         $database->setTabela($tabela);
 
 
-        // var_dump($database);
 
         $database->exportJson($database);
 
