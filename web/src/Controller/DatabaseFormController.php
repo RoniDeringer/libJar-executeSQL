@@ -19,13 +19,21 @@ class DatabaseFormController extends AbstractController
     /**
      * @Route("/form", name="formulario")
      */
-    public function index()
+    public function index(Request $request)
     {
-        $form = $this->createForm(DatabaseForm::class);
+        $database = new Database();
+        $form = $this->createForm(DatabaseForm::class, $database);
+        $form->handleRequest($request); //popula o objeto
+
+        if ($form->isSubmitted()) {
+            //proxima view
+        }
+
+
         $data['titulo'] = 'Add novo banco';
         $data['form'] = $form;
 
-        return $this->renderForm('form/index.html.twig', $data);
+        return $this->renderForm('form/database.html.twig', $data);
 
         //5 . 18:00
     }

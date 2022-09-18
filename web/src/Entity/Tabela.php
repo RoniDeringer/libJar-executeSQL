@@ -20,6 +20,11 @@ class Tabela
     private $id;
 
     /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $nome;
+
+    /**
      * @ORM\OneToMany(targetEntity=Coluna::class, mappedBy="tabela")
      */
     private $coluna;
@@ -40,6 +45,15 @@ class Tabela
         return $this->id;
     }
 
+    public function getNome()
+    {
+        return $this->nome;
+    }
+
+    public function setNome(string $nome)
+    {
+        return $this->nome = $nome;
+    }
     /**
      * @return Collection<int, Coluna>
      */
