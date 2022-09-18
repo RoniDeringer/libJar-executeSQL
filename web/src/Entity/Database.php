@@ -13,46 +13,39 @@ use Doctrine\ORM\Mapping as ORM;
 class Database
 {
     /**
-     * @ORM\Id
-     * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string", length=255)
      */
-    private $id;
+    public $nome;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $nome;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $url;
+    public $url;
 
     /**
      * @ORM\Column(type="integer")
      */
-    private $porta;
+    public $porta;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $usuario;
+    public $usuario;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $senha;
+    public $senha;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $sgbd;
+    public $sgbd;
 
     /**
      * @ORM\OneToMany(targetEntity=Tabela::class, mappedBy="database")
      */
-    private $tabela;
+    public $tabela;
 
     public function __construct()
     {
@@ -129,30 +122,55 @@ class Database
     /**
      * @return Collection<int, Tabela>
      */
-    public function getTabela(): Collection
+    public function getTabela()
     {
         return $this->tabela;
     }
 
-    public function addTabela(Tabela $tabela)
+    public function setTabela(Tabela $tabela)
     {
-        if (!$this->tabela->contains($tabela)) {
-            $this->tabela[] = $tabela;
-            $tabela->setDatabase($this);
-        }
-
-        return $this;
+        $this->tabela = $tabela;
     }
 
-    public function removeTabela(Tabela $tabela): self
-    {
-        if ($this->tabela->removeElement($tabela)) {
-            // set the owning side to null (unless already changed)
-            if ($tabela->getDatabase() === $this) {
-                $tabela->setDatabase(null);
-            }
-        }
 
-        return $this;
+    // public function addTabela(Tabela $tabela)
+    // {
+    //     if (!$this->tabela->contains($tabela)) {
+    //         $this->tabela[] = $tabela;
+    //         $tabela->setDatabase($this);
+    //     }
+
+    //     return $this;
+    // }
+
+    // public function removeTabela(Tabela $tabela): self
+    // {
+    //     if ($this->tabela->removeElement($tabela)) {
+    //         // set the owning side to null (unless already changed)
+    //         if ($tabela->getDatabase() === $this) {
+    //             $tabela->setDatabase(null);
+    //         }
+    //     }
+
+    //     return $this;
+    // }
+
+
+
+    public function exportJson($object)
+    {
+        $json = json_encode($object);
+
+        $filename = 'generated_json_' . date('Y-m-d');
+
+        // Force download .json file with JSON in it
+        header("Content-type: application/vnd.ms-excel");
+        header("Content-Type: application/force-download");
+        header("Content-Type: application/download");
+        header("Content-disposition: " . $filename . ".json");
+        header("Content-disposition: filename=" . $filename . ".json");
+
+        print $json;
+        exit;
     }
 }

@@ -68,8 +68,8 @@ class DatabaseFormController extends AbstractController
         //TABELA
 
         $tabela->setNome('alunos');
-        $tabela->addColuna($coluna);
-        $tabela->addColuna($coluna2);
+        $tabela->setColuna($coluna);
+        $tabela->setColuna($coluna2);
 
 
         //DATABASE
@@ -80,14 +80,12 @@ class DatabaseFormController extends AbstractController
         $database->setUsuario('root');
         $database->setSenha('12345');
         $database->setSgbd('MYSQL');
-        $database->addTabela($tabela);
+        $database->setTabela($tabela);
 
 
-        $json = json_encode($coluna);
+        // var_dump($database);
 
-        echo($json);
-
-
+        $database->exportJson($database);
 
 
 

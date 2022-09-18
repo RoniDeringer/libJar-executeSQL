@@ -13,27 +13,20 @@ use Doctrine\ORM\Mapping as ORM;
 class Tabela
 {
     /**
-     * @ORM\Id
-     * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
-     */
-    private $id;
-
-    /**
      * @ORM\Column(type="string", length=255)
      */
-    private $nome;
+    public $nome;
 
     /**
      * @ORM\OneToMany(targetEntity=Coluna::class, mappedBy="tabela")
      */
-    private $coluna;
+    public $coluna;
 
     /**
      * @ORM\ManyToOne(targetEntity=Database::class, inversedBy="tabela")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $database;
+    public $database;
 
     public function __construct()
     {
@@ -57,39 +50,22 @@ class Tabela
     /**
      * @return Collection<int, Coluna>
      */
-    public function getColuna(): Collection
+    public function getColuna()
     {
         return $this->coluna;
     }
 
-    public function addColuna(Coluna $coluna): self
+    public function setColuna($coluna)
     {
-        if (!$this->coluna->contains($coluna)) {
-            $this->coluna[] = $coluna;
-            $coluna->setTabela($this);
-        }
-
-        return $this;
+        $this->coluna = $coluna;
     }
 
-    public function removeColuna(Coluna $coluna): self
-    {
-        if ($this->coluna->removeElement($coluna)) {
-            // set the owning side to null (unless already changed)
-            if ($coluna->getTabela() === $this) {
-                $coluna->setTabela(null);
-            }
-        }
-
-        return $this;
-    }
-
-    public function getDatabase(): ?Database
+    public function getDatabase()
     {
         return $this->database;
     }
 
-    public function setDatabase(?Database $database): self
+    public function setDatabase(?Database $database)
     {
         $this->database = $database;
 

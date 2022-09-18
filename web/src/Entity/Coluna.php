@@ -11,32 +11,25 @@ use Doctrine\ORM\Mapping as ORM;
 class Coluna
 {
     /**
-     * @ORM\Id
-     * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string", length=255)
      */
-    private $id;
+    public $nome;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $nome;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $tipo;
+    public $tipo;
 
     /**
      * @ORM\Column(type="boolean")
      */
-    private $isNotNull;
+    public $isNotNull;
 
     /**
      * @ORM\ManyToOne(targetEntity=Tabela::class, inversedBy="coluna")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $tabela;
+    public $tabela;
 
     public function getId()
     {
@@ -73,15 +66,13 @@ class Coluna
         return $this->isNotNull = $isNotNull;
     }
 
-    public function getTabela(): ?Tabela
+    public function getTabela()
     {
         return $this->tabela;
     }
 
-    public function setTabela(?Tabela $tabela): self
+    public function setTabela(?Tabela $tabela)
     {
-        $this->tabela = $tabela;
-
-        return $this;
+        return $this->tabela = $tabela;
     }
 }
