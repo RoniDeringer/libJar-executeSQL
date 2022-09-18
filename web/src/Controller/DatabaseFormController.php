@@ -26,7 +26,7 @@ class DatabaseFormController extends AbstractController
         $form->handleRequest($request); //popula o objeto
 
         if ($form->isSubmitted()) {
-            //proxima view
+            //proxima view  MEU OBJETO POPULADO, VAI JUNTO?
             $url = '/form/tabela';
             header('Location: ' . $url);
                 exit;
@@ -39,49 +39,5 @@ class DatabaseFormController extends AbstractController
         return $this->renderForm('form/database.html.twig', $data);
 
         //5 . 18:00
-    }
-
-
-    /**
-     * @Route("/teste", name="database_index")
-    */
-    public function teste()
-    {
-
-        $database = new Database();
-        $tabela = new \App\Entity\Tabela();
-        $coluna = new \App\Entity\Coluna();
-        $coluna2 = new \App\Entity\Coluna();
-
-
-
-        //COLUNAS
-        $coluna->setNome('id');
-        $coluna->setTipo('int');
-        $coluna->setIsNotNull(true);
-
-        $coluna2->setNome('nome');
-        $coluna2->setTipo('varchar(45)');
-        $coluna2->setIsNotNull(true);
-
-
-        //TABELA
-
-        $tabela->addColuna($coluna);
-        $tabela->addColuna($coluna2);
-
-
-        //DATABASE
-
-        $database->setNome('alunos_ifc');
-        $database->setUrl(3000);
-        $database->setUsuario('root');
-        $database->setSenha('12345');
-        $database->setSgbd('MYSQL');
-        $database->addTabela($tabela);
-
-        $json = json_encode($database);
-        $bytes = file_put_contents("myfile.json", $json);
-        echo $json;
     }
 }
