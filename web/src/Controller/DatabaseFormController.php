@@ -27,6 +27,9 @@ class DatabaseFormController extends AbstractController
 
         if ($form->isSubmitted()) {
             //proxima view
+            $url = '/form/tabela';
+            header('Location: ' . $url);
+                exit;
         }
 
 
