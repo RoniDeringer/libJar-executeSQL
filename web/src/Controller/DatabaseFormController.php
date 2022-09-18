@@ -84,7 +84,6 @@ class DatabaseFormController extends AbstractController
 
         $json = $database->convertJson($database);
 
-
         // echo $json;
 
         $database->downloadJson($json);
@@ -109,10 +108,5 @@ class DatabaseFormController extends AbstractController
 
     //https://github.com/karolispx/php-generate-json-file/blob/master/generate-json.php
     //https://stackoverflow.com/questions/17903484/symfony2-how-to-force-download-in-ajax-return-json-datatype
-    }
-
-    public function objectToJson($objeto)
-    {
-        return json_encode($objeto);
     }
 }

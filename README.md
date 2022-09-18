@@ -50,3 +50,27 @@ instalar as dependencias do composer: <br>
 $ `composer install`
 
 
+## Padrão do JSON
+
+~~~json
+{
+    "nome": "string",
+    "url": "string",
+    "porta": 0,
+    "usuario": "sring",
+    "senha": "string",
+    "sgbd": "string",
+    "tabela": [
+        {
+            "nome": "string",
+            "coluna": [
+                {
+                    "nome": "string",
+                    "tipo": "string",
+                    "isNotNull": true
+                }
+            ]
+        }
+    ]
+}
+~~~
