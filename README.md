@@ -16,7 +16,7 @@ ___
  ___
 ## <center> 🎯 Proposta do projeto </center>
 <div>
-<a align="right" href="https://app.daily.dev/CarlosArthur"><img align="right" src="web/img/diagrama_poo2.png" width="400"  height="750" alt="Diagrama do projeto"/></a>
+<a align="right"><img align="right" src="web/img/diagrama_poo2.png" width="400"  height="700" alt="Diagrama do projeto"/></a>
 <br>
 
 #### O trabalho será desenvolvido em duas etapas:
