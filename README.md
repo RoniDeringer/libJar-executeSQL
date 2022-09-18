@@ -39,11 +39,12 @@ primeira tela será um formulário solicitando as informações do banco - _nome
 <br />
 <br />
 
+____
 
 ## ⚙️ Info
 
 run project:<br>
-$ `symfony server:start`   **Dentro da pasta web:** 
+$ `symfony server:start`   **Dentro da pasta web** 
 
 instalar as dependencias do composer: <br>
 $ `composer install`
