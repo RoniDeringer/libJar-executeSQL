@@ -57,6 +57,6 @@ class Tabela
 
     public function setColuna($coluna)
     {
-        $this->coluna = $coluna;
+        $this->coluna[] = $coluna;
     }
 }

@@ -126,7 +126,7 @@ class Database
 
     public function setTabela(Tabela $tabela)
     {
-        $this->tabela = $tabela;
+        $this->tabela[] = $tabela;
     }
 
 

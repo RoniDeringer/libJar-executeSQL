@@ -54,7 +54,6 @@ class DatabaseFormController extends AbstractController
         $coluna2 = new \App\Entity\Coluna();
 
 
-
         //COLUNAS
         $coluna->setNome('coluna 1');
         $coluna->setTipo('int');
@@ -84,6 +83,10 @@ class DatabaseFormController extends AbstractController
 
 
         $json = $database->convertJson($database);
+
+
+        // echo $json;
+
         $database->downloadJson($json);
 
 
@@ -99,10 +102,6 @@ class DatabaseFormController extends AbstractController
         $data['titulo'] = 'testeform';
 
         return $this->renderForm('form/database.html.twig', $data);
-
-
-
-
 
 
         // $bytes = file_put_contents("myfile.json", $json);
