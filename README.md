@@ -45,7 +45,7 @@ ____
 
 **Instalar no windows**<br>
 scoop:<br>
-$ `Set-ExecutionPolicy RemoteSigned -scope CurrentUser`
+$ `Set-ExecutionPolicy RemoteSigned -scope CurrentUser` <br>
 $ `Invoke-Expression (New-Object System.Net.WebClient).DownloadString('https://get.scoop.sh')`
 
 symfony<br>
