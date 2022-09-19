@@ -43,6 +43,14 @@ ____
 
 ## ⚙️ Info
 
+**Instalar no windows**<br>
+scoop:<br>
+$ `Set-ExecutionPolicy RemoteSigned -scope CurrentUser`
+$ `Invoke-Expression (New-Object System.Net.WebClient).DownloadString('https://get.scoop.sh')`
+
+symfony<br>
+$ `scoop install symfony-cli`
+
 run project:<br>
 $ `symfony server:start`   **Dentro da pasta web** 
 
