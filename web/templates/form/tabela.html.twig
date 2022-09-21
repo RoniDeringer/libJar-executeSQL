@@ -1,8 +1,14 @@
-{% extends 'base.html.twig' %}
-{% block title %} {{titulo}}{% endblock %}
+{% extends 'form/coluna.html.twig' %}
+
 {% block body %}
+    <h2>Welcome</h2>
+    {{ form_start(form) }}
+        {{ form_row(form.nome) }}
+        <div class="col-sm-8 col-sm-offset-2" data-prototype="{{form.coluna.vars.prototype}}">
+            {% for row in form.coluna %}
+            {{form_row(row)}}
 
-<h1>titulo</h1>
- {{form(form)}}
-
+            {% endfor %}
+        </div>
+    {{ form_end(form) }}
 {% endblock %}

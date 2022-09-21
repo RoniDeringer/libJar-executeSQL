@@ -25,13 +25,6 @@ class Tabela
 
 
 
- /**
-     * @OneToMany(targetEntity="PessoaContato", mappedBy="pessoa", cascade={"persist", "remove", "refresh"})
-     * @var PessoaContato[]|\Doctrine\Common\Collections\ArrayCollection
-     */
-    protected $pessoaContato;
-
-
     public function __construct()
     {
         $this->coluna = new \Doctrine\Common\Collections\ArrayCollection();
