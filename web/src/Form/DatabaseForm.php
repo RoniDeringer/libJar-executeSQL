@@ -16,8 +16,8 @@ class DatabaseForm extends AbstractType
         $builder
         ->add('nome', TextType::class, ['label' => 'Nome do Banco: '])
         ->add('url', TextType::class, ['label' => 'Url: ' ])
-        ->add('porta', IntegerType::class, ['label' => 'porta: ' ])
-        ->add('usuario', TextType::class, ['label' => 'user: ' ])
+        ->add('porta', IntegerType::class, ['label' => 'Porta: ' ])
+        ->add('usuario', TextType::class, ['label' => 'User: ' ])
         ->add('senha', TextType::class, ['label' => 'Url: ' ])
         ->add(
             'sgbd',

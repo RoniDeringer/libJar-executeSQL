@@ -31,17 +31,19 @@ class TabelaFormController extends AbstractController
 
 
 
-        $tabelaForm = $this->createForm(TabelaForm::class, $tabela);
+        $form = $this->createForm(TabelaForm::class, $tabela);
         // $tabelaForm->handleRequest($request);
 
         //mete um js aqui
         // $data['titulo'] = 'Add as tabelas';
         // $data['form'] = $tabelaForm;
 
-        return $this->renderForm('form/tabela.html.twig', [
-            'form' => $tabelaForm
-        ]);
 
-        //5: bootstrap
+
+        return $this->render('form/tabela.html.twig', [
+            'form' => $form->createView()
+        ]);
     }
 }
+
+//33 minutos de video

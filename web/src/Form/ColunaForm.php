@@ -13,7 +13,8 @@ class ColunaForm extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-        ->add('nome', TextType::class, ['label' => 'Nome da coluna: '])
+        ->add('nome')
+        // ->add('nome', TextType::class, ['label' => 'Nome da coluna: '])
         ->add('tipo', ChoiceType::class, ['choices' => [
             'Varchar(45)' => 'varchar', 'Int' => 'int', 'DataTime' => 'datatime'
         ]])
