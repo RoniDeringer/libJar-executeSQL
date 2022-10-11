@@ -27,7 +27,7 @@ class DatabaseFormController extends AbstractController
 
         if ($form->isSubmitted()) {
             //proxima view  MEU OBJETO POPULADO, VAI JUNTO?
-            $url = '/form/tabela';
+            $url = '/tabela';
             header('Location: ' . $url);
             exit;
         }
@@ -55,12 +55,12 @@ class DatabaseFormController extends AbstractController
 
 
         //COLUNAS
-        $coluna->setNome('coluna 1');
-        $coluna->setTipo('int');
+        $coluna->setNomeCol('nome');
+        $coluna->setTipo('varcha(45)');
         $coluna->setIsNotNull(true);
 
-        $coluna2->setNome('coluna 2');
-        $coluna2->setTipo('varchar(45)');
+        $coluna2->setNomeCol('idade');
+        $coluna2->setTipo('int)');
         $coluna2->setIsNotNull(true);
 
 
@@ -75,7 +75,7 @@ class DatabaseFormController extends AbstractController
 
         $database->setNome('alunos_ifc');
         $database->setPorta(3000);
-        $database->setUrl('3000');
+        $database->setUrl('c:/user/roni/Downloads');
         $database->setUsuario('root');
         $database->setSenha('12345');
         $database->setSgbd('MYSQL');

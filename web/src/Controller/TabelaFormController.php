@@ -8,27 +8,21 @@ use App\Form\ColunaForm;
 use App\Form\Submit;
 use App\Form\TabelaForm;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\BrowserKit\Request;
+// use Symfony\Component\BrowserKit\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\Request;
 
 class TabelaFormController extends AbstractController
 {
     /**
-     * @Route("/form/tabela", name="tabela")
+     * @Route("/tabela", name="tabela")
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function index()
+    public function index(Request $request)
     {
 
         $tabela = new Tabela();
-        $tabela->setNome('tabela 1');
-
-        $coluna = new Coluna();
-        $coluna->setNome('coluna 1');
-        $coluna->setTipo('Varchar(45)');
-        $coluna->setIsNotNull(true);
-
-        $tabela->setColuna($coluna);
-
 
 
         $form = $this->createForm(TabelaForm::class, $tabela);

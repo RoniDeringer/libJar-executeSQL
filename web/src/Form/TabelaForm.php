@@ -13,7 +13,7 @@ class TabelaForm extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-        ->add('nome', TextType::class, ['label' => 'Nome da tabela: '])
+        ->add('nome', TextType::class)
         //formulario de coluna
         ->add('coluna', CollectionType::class, [
             'entry_type' => ColunaForm::class,
@@ -24,7 +24,6 @@ class TabelaForm extends AbstractType
             'allow_add' => true,
             'allow_delete' => true
         ])
-        // just a regular save button to persist the changes
         ->add('save', SubmitType::class, [
             'attr' => [
                 'class' => 'btn btn-success'

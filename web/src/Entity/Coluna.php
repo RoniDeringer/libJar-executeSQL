@@ -2,18 +2,32 @@
 
 namespace App\Entity;
 
-use App\Repository\ColunaRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
+ * Coluna
+ *
+ * @ORM\Table(name="coluna")
  * @ORM\Entity(repositoryClass=ColunaRepository::class)
  */
 class Coluna
 {
     /**
-     * @ORM\Column(type="string", length=255)
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
-    public $nome;
+    private $id;
+
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nomeCol", type="string", length=255)
+     */
+    public $nomeCol;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -27,17 +41,28 @@ class Coluna
 
     /**
      * @ORM\ManyToOne(targetEntity="Tabela", inversedBy="coluna")
+    *  @ORM\JoinColumn(name="tabela_id", referencedColumnName="id")
      */
     private $tabela;
 
-    public function getNome()
+     /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
     {
-        return $this->nome;
+        return $this->id;
     }
 
-    public function setNome(string $nome)
+    public function getNomeCol()
     {
-        return $this->nome = $nome;
+        return $this->nomeCol;
+    }
+
+    public function setNomeCol(string $nomeCol)
+    {
+        return $this->nomeCol = $nomeCol;
     }
 
     public function getTipo()

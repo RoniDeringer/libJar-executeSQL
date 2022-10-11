@@ -13,21 +13,41 @@ use Doctrine\ORM\Mapping as ORM;
 class Tabela
 {
     /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    public $id;
+
+    /**
      * @ORM\Column(type="string", length=255)
      */
     public $nome;
 
     /**
      * @ORM\OneToMany(targetEntity="Coluna", mappedBy="tabela")
-     * @var Coluna[]|\Doctrine\Common\Collections\ArrayCollection
      */
     public $coluna;
 
 
-
+    /**
+     * Constructor
+     */
     public function __construct()
     {
         $this->coluna = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 
     public function getNome()
@@ -51,5 +71,21 @@ class Tabela
     public function setColuna($coluna)
     {
         $this->coluna[] = $coluna;
+    }
+
+        /**
+     * Add coluna
+     *
+     * @param \App\Entity\Coluna $coluna
+     *
+     * @return Tabela
+     */
+    public function addColuna(\App\Entity\Coluna $coluna)
+    {
+        $this->coluna[] = $coluna;
+        // setting the current user to the $exp,
+        // adapt this to whatever you are trying to achieve
+        $coluna->setTabela($this);
+        return $this;
     }
 }
