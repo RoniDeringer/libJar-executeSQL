@@ -2,22 +2,28 @@
 
 namespace App\Form;
 
-use Symfony\Component\Form\Extension\Core\Type\TextType; //error: use Doctrine\DBAL\Types\TextType;
+use App\Entity\Coluna;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class ColunaForm extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-        ->add('nome')
-        // ->add('nome', TextType::class, ['label' => 'Nome da coluna: '])
-        ->add('tipo', ChoiceType::class, ['choices' => [
-            'Varchar(45)' => 'varchar', 'Int' => 'int', 'DataTime' => 'datatime'
-        ]])
-        ->add('isNotNull', CheckboxType::class, ['label' => 'not null', 'required' => true]);
+        ->add('nome', TextType::class, ['label' => 'Nome' ])
+        ->add('isNotNull', CheckboxType::class, ['label' => 'Not Null' ])
+        ;
+    }
+
+    public function configureOptions(OptionsResolver $resolver)
+    {
+        $resolver->setDefaults([
+            'data_class' => Coluna::class,
+        ]);
     }
 }

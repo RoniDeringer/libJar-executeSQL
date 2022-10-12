@@ -2,10 +2,9 @@
 
 namespace App\Entity;
 
-use App\Repository\TabelaRepository;
 use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\Collection;
 
 /**
  * @ORM\Entity(repositoryClass=TabelaRepository::class)
@@ -17,17 +16,13 @@ class Tabela
      */
     public $nome;
 
-    /**
-     * @ORM\OneToMany(targetEntity="Coluna", mappedBy="tabela")
-     * @var Coluna[]|\Doctrine\Common\Collections\ArrayCollection
-     */
     public $coluna;
 
 
 
     public function __construct()
     {
-        $this->coluna = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->coluna = new ArrayCollection();
     }
 
     public function getNome()
@@ -40,15 +35,12 @@ class Tabela
         return $this->nome = $nome;
     }
 
-     /**
-     * @return Coluna[]
-     */
-    public function getColuna()
+    public function getColunas(): Collection
     {
         return $this->coluna;
     }
 
-    public function setColuna($coluna)
+    public function setColunas($coluna)
     {
         $this->coluna[] = $coluna;
     }

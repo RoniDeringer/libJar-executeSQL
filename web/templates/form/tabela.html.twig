@@ -1,14 +1,31 @@
-{% extends 'coluna.html.twig' %}
+{% extends 'base.html.twig' %}
+    {% block body %}
+    <ul class="tabelas">
+    {# for #}
+        <div class="panel panel-danger "> {# VERMELHO #}
+            <div class="panel-heading">
+                <h3>Tabela </h3>
+            </div>
+            {{ form_start(form) }}
+            {{ form_row(form.nome) }}
 
-{% block body %}
-    <h2>Welcome</h2>
-    {{ form_start(form) }}
-        {{ form_row(form.nome) }}
-        <div class="col-sm-8 col-sm-offset-2" data-prototype="{{form.coluna.vars.prototype}}">
-            {% for row in form.coluna %}
-            {{form_row(row)}}
+                {# ========= coluna ========= #}
+                <ul class="colunas">
+                    {% for coluna in form.colunas %}
+                        <div class="panel panel-primary ">
+                            <div class="panel-heading">
+                                <h3>Coluna </h3>
+                            </div>
+                            <div class="panel-body">
+                                {{ form_row(coluna) }}
+                            </div>
+                        </div>
+                    {% endfor %}
+                </ul>
+                {# ========= end coluna ========= #}
 
-            {% endfor %}
-        </div>
-    {{ form_end(form) }}
-{% endblock %}
+            {{ form_end(form) }}
+        </div>{# VERMELHO #}
+    </ul>
+
+{%  endblock %}

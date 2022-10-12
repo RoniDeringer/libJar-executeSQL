@@ -3,8 +3,10 @@
 namespace App\Controller;
 
 use App\Entity\Coluna;
+use App\Entity\Group;
 use App\Entity\Tabela;
 use App\Form\ColunaForm;
+use App\Form\GroupForm;
 use App\Form\Submit;
 use App\Form\TabelaForm;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -12,22 +14,27 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class TabelaFormController extends AbstractController
+class GroupFormController extends AbstractController
 {
     /**
-     * @Route("/form/tabela", name="tabela")
+     * @Route("/form", name="group")
      */
     public function index(Request $request): Response
     {
-        $tabela = new Tabela();
+
+        $group = new Group();
+
+        $tabela1 = new Tabela();
 
         $coluna1 = new Coluna();
         $coluna2 = new Coluna();
 
-        $tabela->getColunas()->add($coluna1);
-        $tabela->getColunas()->add($coluna2);
+        $tabela1->getColunas()->add($coluna1);
+        // $tabela1->getColunas()->add($coluna2);
 
-        $form = $this->createForm(TabelaForm::class, $tabela);
+        $group->getTabelas()->add($tabela1);
+
+        $form = $this->createForm(GroupForm::class, $group);
 
         $form->handleRequest($request);
 
@@ -35,10 +42,8 @@ class TabelaFormController extends AbstractController
             // ... do your form processing, like saving the Task and Tag entities
         }
 
-        return $this->renderForm('form/tabela.html.twig', [
+        return $this->renderForm('form/group.html.twig', [
             'form' => $form,
         ]);
     }
 }
-
-//33 minutos de video
