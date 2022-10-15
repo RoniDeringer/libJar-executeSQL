@@ -35,8 +35,17 @@ class TabelaFormController extends AbstractController
             // ... do your form processing, like saving the Task and Tag entities
         }
 
+        if ($form->isSubmitted()) {
+            //proxima view  MEU OBJETO POPULADO, VAI JUNTO?
+
+            //salvar o objeto atual num array e criar um novo objeto
+            $url = '/form/tabela';
+            header('Location: ' . $url);
+            exit;
+        }
+
         return $this->renderForm('form/tabela.html.twig', [
-            'form' => $form,
+        'form' => $form,
         ]);
     }
 }

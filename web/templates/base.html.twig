@@ -18,37 +18,21 @@
                 crossorigin="anonymous"></script>
 
 
-        <script src="{{ asset('bundles/app/js/app.js') }}">
+        <script>
 
+                    console.log('teste')
 
-                    // this variable is the list in the dom, it's initiliazed when the document is ready
                     var $collectionHolder;
-                    // the link which we click on to add new items
                     var $addNewItem = $('<a href="#" class="btn btn-info">Add new item</a>');
-                    // when the page is loaded and ready
                     $(document).ready(function () {
-                        // get the collectionHolder, initilize the var by getting the list;
                         $collectionHolder = $('#exp_list');
-                        // append the add new item link to the collectionHolder
                         $collectionHolder.append($addNewItem);
-                        // add an index property to the collectionHolder which helps track the count of forms we have in the list
                         $collectionHolder.data('index', $collectionHolder.find('.panel').length)
-                        // finds all the panels in the list and foreach one of them we add a remove button to it
-                        // add remove button to existing items
                         $collectionHolder.find('.panel').each(function () {
-                            // $(this) means the current panel that we are at
-                            // which means we pass the panel to the addRemoveButton function
-                            // inside the function we create a footer and remove link and append them to the panel
-                            // more informations in the function inside
                             addRemoveButton($(this));
                         });
-                        // handle the click event for addNewItem
                         $addNewItem.click(function (e) {
-                            // preventDefault() is your  homework if you don't know what it is
-                            // also look up preventPropagation both are usefull
                             e.preventDefault();
-                            // create a new form and append it to the collectionHolder
-                            // and by form we mean a new panel which contains the form
                             addNewForm();
                         })
                     });

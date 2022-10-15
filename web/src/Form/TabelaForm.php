@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\Tabela;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -18,12 +19,17 @@ class TabelaForm extends AbstractType
             'entry_type' => ColunaForm::class,
             'entry_options' => ['label' => false],
         ]);
+
+        $builder->add('newTable', SubmitType::class, [
+            'attr' => ['class' => 'btn btn-primary'],
+            'label' => 'Nova Tabela'
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Tabela::class,
+        'data_class' => Tabela::class,
         ]);
     }
 }

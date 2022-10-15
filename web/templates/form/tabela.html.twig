@@ -1,14 +1,14 @@
 {% extends 'base.html.twig' %}
     {% block body %}
     <ul class="tabelas">
-    {# for #}
         <div class="panel panel-danger "> {# VERMELHO #}
             <div class="panel-heading">
                 <h3>Tabela </h3>
             </div>
-            {{ form_start(form) }}
-            {{ form_row(form.nome) }}
-
+            <div class="panel-body">
+                {{ form_start(form) }}
+                {{ form_row(form.nome) }}
+            </div>
                 {# ========= coluna ========= #}
                 <ul class="colunas">
                     {% for coluna in form.colunas %}

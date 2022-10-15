@@ -47,7 +47,6 @@ class DatabaseFormController extends AbstractController
     */
     public function teste()
     {
-        /**
 
         $database = new Database();
         $tabela = new \App\Entity\Tabela();
@@ -68,8 +67,8 @@ class DatabaseFormController extends AbstractController
         //TABELA
 
         $tabela->setNome('alunos');
-        $tabela->setColuna($coluna);
-        $tabela->setColuna($coluna2);
+        $tabela->getColunas()->add($coluna);
+        $tabela->getColunas()->add($coluna2);
 
 
         //DATABASE
@@ -106,7 +105,6 @@ class DatabaseFormController extends AbstractController
 
         // $bytes = file_put_contents("myfile.json", $json);
 
- */
     //https://github.com/karolispx/php-generate-json-file/blob/master/generate-json.php
     //https://stackoverflow.com/questions/17903484/symfony2-how-to-force-download-in-ajax-return-json-datatype
     }
