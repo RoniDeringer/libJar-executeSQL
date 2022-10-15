@@ -16,14 +16,19 @@ class TabelaForm extends AbstractType
         $builder->add('nome');
 
         $builder->add('colunas', CollectionType::class, [
-            'entry_type' => ColunaForm::class,
-            'entry_options' => ['label' => false],
+        'entry_type' => ColunaForm::class,
+        'entry_options' => ['label' => false],
         ]);
 
         $builder->add('newTable', SubmitType::class, [
-            'attr' => ['class' => 'btn btn-primary'],
-            'label' => 'Nova Tabela'
-            ]);
+        'attr' => ['class' => 'btn btn-primary'],
+        'label' => 'Nova Tabela'
+        ]);
+
+        //     $builder->add('newTable', SubmitType::class, [
+        //         'attr' => ['class' => 'btn btn-success'],  //setar com outro tipo Type
+        //         'label' => 'Download JSON'
+        //         ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)
