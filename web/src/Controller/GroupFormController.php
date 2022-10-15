@@ -23,16 +23,9 @@ class GroupFormController extends AbstractController
     {
 
         $group = new Group();
+        $tabela = new Tabela();
 
-        $tabela1 = new Tabela();
-
-        $coluna1 = new Coluna();
-        $coluna2 = new Coluna();
-
-        $tabela1->getColunas()->add($coluna1);
-        // $tabela1->getColunas()->add($coluna2);
-
-        $group->getTabelas()->add($tabela1);
+        $group->getTabelas()->add($tabela);
 
         $form = $this->createForm(GroupForm::class, $group);
 

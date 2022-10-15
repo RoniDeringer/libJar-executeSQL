@@ -18,3 +18,4 @@
 /web/.phpunit.result.cache
 /web/phpunit.xml
 ###< symfony/phpunit-bridge ###
+/bin/
