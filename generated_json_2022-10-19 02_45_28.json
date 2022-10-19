@@ -1,0 +1,25 @@
+{
+    "nome": "alunos_ifc",
+    "url": "3000",
+    "porta": 3000,
+    "usuario": "root",
+    "senha": "12345",
+    "sgbd": "MYSQL",
+    "tabela": [
+        {
+            "nome": "alunos",
+            "colunas": [
+                {
+                    "nome": "coluna 1",
+                    "tipo": "int",
+                    "isNotNull": true
+                },
+                {
+                    "nome": "coluna 2",
+                    "tipo": "varchar(45)",
+                    "isNotNull": true
+                }
+            ]
+        }
+    ]
+}

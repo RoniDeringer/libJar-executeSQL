@@ -1,2 +1,2 @@
-module libJava {
+module com.framework.deringer {
 }
