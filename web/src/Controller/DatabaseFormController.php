@@ -41,6 +41,18 @@ class DatabaseFormController extends AbstractController
         //5 . 18:00
     }
 
+    /**
+     * @Route("/export", name="formulario")
+     */
+    public function exportJson(Request $request)
+    {
+        var_dump($request);
+        // $json = $database->convertJson($database);
+        // $database->downloadJson($json);
+
+    }
+
+
 
     /**
      * @Route("/teste", name="database_index")

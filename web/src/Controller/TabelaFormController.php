@@ -37,9 +37,17 @@ class TabelaFormController extends AbstractController
 
         if ($form->isSubmitted()) {
             //proxima view  MEU OBJETO POPULADO, VAI JUNTO?
-
             //salvar o objeto atual num array e criar um novo objeto
-            $url = '/form/tabela';
+
+            $rota = 'newTable';
+
+            if($rota == 'newTable'){
+                $url = '/form/tabela';
+            }else{
+                $url = '/export';
+            }
+
+
             header('Location: ' . $url);
             exit;
         }

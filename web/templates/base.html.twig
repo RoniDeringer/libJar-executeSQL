@@ -25,10 +25,13 @@
     btn addColumn = apenas 1 no form
 
     */
+
+
                     var $collectionHolder;
 
                     $(document).ready(function () {
                         $collectionHolder = $('#coluna_list');
+                        $collectionHolder.data('index', $collectionHolder.find('.panel').length)
                         $collectionHolder.find('.panel').each(function () {
                             footerBtns($(this));
                         });
@@ -57,13 +60,13 @@
                     }
 
                     function newColumn() {
-                        var prototype = $collectionHolder.data('prototype');
+                        var prototype = $collectionHolder.data('prototype')
                         console.log(prototype)
 
+                        /*
 
                         var index = $collectionHolder.data('index');
                         console.log(index)
-                        /*
                         var newForm = prototype;
                         newForm = newForm.replace(/__name__/g, index);
                         $collectionHolder.data('index', index+1);
@@ -78,12 +81,9 @@
                     function deleteColumn ($panel, e) {
                         e.preventDefault();
                         $(e.target).parents('.panel').slideUp(1000, function () {
-                            panel.remove();
+                            this.remove();
                         })
                     }
-
-
-
 
 
 
