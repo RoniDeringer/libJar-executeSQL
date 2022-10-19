@@ -20,55 +20,41 @@
 
         <script>
 
+    /**
+    btn remove = 1 pra cada coluna
+    btn addColumn = apenas 1 no form
+
+    */
                     var $collectionHolder;
-                    var $addNewItem = $('<a href="#" class="btn btn-warning">Add new item</a>');
-
-
-
-
-                    $addNewItem.click(function(){
-                          console.log('TESTESTETESTEETETEETETTE')
-                        //e.preventDefault();
-                        //addNewForm();
-                    })
-
 
                     $(document).ready(function () {
                         $collectionHolder = $('#coluna_list');
                         $collectionHolder.find('.panel').each(function () {
-                            addRemoveButton($(this));
-                            addColumn($(this));
+                            footerBtns($(this));
                         });
-
-
                     });
 
+                    function footerBtns($this){
+                        var $panelFooter = $('<div class="panel-footer"></div>');
 
+                        var $btnRemoveColumn = $('<a href="#" class="btn btn-danger">Remove</a>');
+                        var $btnAddColumn = $('<a href="#" class="btn btn-success">Nova Coluna</a>');
 
-                    function addRemoveButton ($panel) {
-                        var $removeButton = $('<a href="#" class="btn btn-danger">Remove</a>');
-                        var $panelFooter = $('<div class="panel-footer"></div>').append($removeButton);
-                        $removeButton.click(function (e) {
-                            e.preventDefault();
-                            $(e.target).parents('.panel').slideUp(1000, function () {
-                                $(this).remove();
-                            })
+                        $panelFooter.append($btnRemoveColumn)
+                        $panelFooter.append($btnAddColumn)
+
+                        $btnAddColumn.click(function (e) {
+                            newColumn($(this))
                         });
-                        $panel.append($panelFooter);
+
+                        $btnRemoveColumn.click(function (e) {
+                            deleteColumn($(this))
+                        });
+
+                        $this.append($panelFooter)
                     }
 
-                    function addColumn ($panel) {
-                        var $newColumn = $('<a href="#" class="btn btn-success">Nova Coluna</a>');
-                        var $panelFooter = $('<div class="panel-footer"></div>').append($newColumn);
-                        $newColumn.click(function (e) {
-                            addNewForm()
-                        });
-                        $panel.append($panelFooter);
-                    }
-
-
-
-                    function addNewForm() {
+                    function newColumn() {
                         console.log('botao')
                         var prototype = $collectionHolder.data('prototype');
                         var index = $collectionHolder.data('index');
@@ -82,8 +68,12 @@
                         $addNewItem.before($panel);
                     }
 
-
-
+                    function deleteColumn ($panel) {
+                        e.preventDefault();
+                        $(e.target).parents('.panel').slideUp(1000, function () {
+                            $(this).remove();
+                        })
+                    }
 
 
 
