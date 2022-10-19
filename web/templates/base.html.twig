@@ -39,25 +39,31 @@
 
                         var $btnRemoveColumn = $('<a href="#" class="btn btn-danger">Remove</a>');
                         var $btnAddColumn = $('<a href="#" class="btn btn-success">Nova Coluna</a>');
+                        var $espaçoBtn = $('<a href="#"> </a>');
 
                         $panelFooter.append($btnRemoveColumn)
+                        $panelFooter.append($espaçoBtn)
                         $panelFooter.append($btnAddColumn)
 
                         $btnAddColumn.click(function (e) {
-                            newColumn($(this))
+                            newColumn()
                         });
 
                         $btnRemoveColumn.click(function (e) {
-                            deleteColumn($(this))
+                            deleteColumn($(this), e)
                         });
 
                         $this.append($panelFooter)
                     }
 
                     function newColumn() {
-                        console.log('botao')
                         var prototype = $collectionHolder.data('prototype');
+                        console.log(prototype)
+
+
                         var index = $collectionHolder.data('index');
+                        console.log(index)
+                        /*
                         var newForm = prototype;
                         newForm = newForm.replace(/__name__/g, index);
                         $collectionHolder.data('index', index+1);
@@ -66,12 +72,13 @@
                         $panel.append($panelBody);
                         addRemoveButton($panel);
                         $addNewItem.before($panel);
+                    */
                     }
 
-                    function deleteColumn ($panel) {
+                    function deleteColumn ($panel, e) {
                         e.preventDefault();
                         $(e.target).parents('.panel').slideUp(1000, function () {
-                            $(this).remove();
+                            panel.remove();
                         })
                     }
 
