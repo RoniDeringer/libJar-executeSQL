@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\Serializer\Encoder\XmlEncoder;
@@ -43,15 +45,11 @@ class Database
      */
     public $sgbd;
 
-    /**
-     * @ORM\OneToMany(targetEntity=Tabela::class, mappedBy="database")
-     *     * @var Tabela[]|\Doctrine\Common\Collections\ArrayCollection
-     */
     public $tabela;
 
     public function __construct()
     {
-        $this->tabela = array();
+        $this->tabela = new ArrayCollection();
     }
 
     public function getNome()
@@ -116,10 +114,7 @@ class Database
         return $this->sgbd = $sgbd;
     }
 
-     /**
-     * @return Tabela[]
-     */
-    public function getTabela()
+    public function getTabela(): Collection
     {
         return $this->tabela;
     }

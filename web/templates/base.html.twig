@@ -37,10 +37,12 @@
                         $collectionHolder = $('#coluna_list');
                         $collectionHolder.find('.panel').each(function () {
                             addRemoveButton($(this));
+                            addColumn($(this));
                         });
 
 
                     });
+
 
 
                     function addRemoveButton ($panel) {
@@ -54,6 +56,16 @@
                         });
                         $panel.append($panelFooter);
                     }
+
+                    function addColumn ($panel) {
+                        var $newColumn = $('<a href="#" class="btn btn-success">Nova Coluna</a>');
+                        var $panelFooter = $('<div class="panel-footer"></div>').append($newColumn);
+                        $newColumn.click(function (e) {
+                            addNewForm()
+                        });
+                        $panel.append($panelFooter);
+                    }
+
 
 
                     function addNewForm() {

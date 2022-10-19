@@ -79,7 +79,7 @@ class DatabaseFormController extends AbstractController
         $database->setUsuario('root');
         $database->setSenha('12345');
         $database->setSgbd('MYSQL');
-        $database->setTabela($tabela);
+        $database->getTabela()->add($tabela);
 
 
         $json = $database->convertJson($database);

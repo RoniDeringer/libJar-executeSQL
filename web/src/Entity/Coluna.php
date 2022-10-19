@@ -2,7 +2,6 @@
 
 namespace App\Entity;
 
-use App\Repository\ColunaRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -10,6 +9,13 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Coluna
 {
+
+    /**
+     * PK
+     * AUTO INCREMENTS
+     */
+
+
     /**
      * @ORM\Column(type="string", length=255)
      */
