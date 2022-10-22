@@ -19,3 +19,4 @@
 /web/phpunit.xml
 ###< symfony/phpunit-bridge ###
 /bin/
+/target/

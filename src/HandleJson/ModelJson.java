@@ -1,10 +1,9 @@
 package HandleJson;
 
 public class ModelJson {
-	
+
 	private String nome;
 
-	
 	public String getNome() {
 		return nome;
 	}
@@ -20,4 +19,5 @@ public class ModelJson {
 		builder.append(nome);
 		builder.append("]");
 		return builder.toString();
+	}
 }
