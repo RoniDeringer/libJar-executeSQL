@@ -1,0 +1,8 @@
+{
+    "nome": "alunos_ifc",
+    "url": "3000",
+    "porta": 123,
+    "usuario": "root",
+    "senha": "12345",
+    "sgbd": "MYSQL"
+}
