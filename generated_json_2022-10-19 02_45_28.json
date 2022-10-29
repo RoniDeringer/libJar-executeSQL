@@ -7,8 +7,8 @@
     "sgbd": "MYSQL",
     "tabela": [
         {
-            "nome": "alunos",
-            "colunas": [
+            "nome": "tabela1",
+            "coluna": [
                 {
                     "nome": "coluna 1",
                     "tipo": "int",
@@ -17,6 +17,16 @@
                 {
                     "nome": "coluna 2",
                     "tipo": "varchar(45)",
+                    "isNotNull": false
+                }
+            ]
+        },
+        {
+            "nome": "tabela2",
+            "coluna": [
+                {
+                    "nome": "coluna3",
+                    "tipo": "bool",
                     "isNotNull": true
                 }
             ]

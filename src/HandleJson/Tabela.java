@@ -25,7 +25,7 @@ public class Tabela {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Tabela [nome=");
+		builder.append("\n Tabela [nome=");
 		builder.append(nome);
 		builder.append(", coluna=");
 		builder.append(coluna);

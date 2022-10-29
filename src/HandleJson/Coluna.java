@@ -27,7 +27,7 @@ public class Coluna {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Coluna [nome=");
+		builder.append("\n Coluna [nome=");
 		builder.append(nome);
 		builder.append(", tipo=");
 		builder.append(tipo);
