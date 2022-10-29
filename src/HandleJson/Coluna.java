@@ -5,6 +5,7 @@ public class Coluna {
 	private String nome;
 	private String tipo;
 	private boolean isNotNull;
+	
 	public String getNome() {
 		return nome;
 	}

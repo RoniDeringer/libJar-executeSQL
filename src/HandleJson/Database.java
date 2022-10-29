@@ -1,5 +1,7 @@
 package HandleJson;
 
+import java.util.ArrayList;
+
 public class Database {
 
 	private String nome;
@@ -8,6 +10,8 @@ public class Database {
 	private String usuario;
 	private String senha;
 	private String sgbd;
+	private ArrayList<Tabela> tabela;
+	
 	public String getNome() {
 		return nome;
 	}
@@ -20,6 +24,7 @@ public class Database {
 	public void setUrl(String url) {
 		this.url = url;
 	}
+
 	public int getPorta() {
 		return porta;
 	}
@@ -44,6 +49,13 @@ public class Database {
 	public void setSgbd(String sgbd) {
 		this.sgbd = sgbd;
 	}
+	public ArrayList<Tabela> getTabela() {
+		return tabela;
+	}
+	public void setTabela(ArrayList<Tabela> tabela) {
+		this.tabela = tabela;
+	}
+	
 
 
 }

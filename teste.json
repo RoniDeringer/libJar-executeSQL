@@ -4,5 +4,33 @@
     "porta": 123,
     "usuario": "root",
     "senha": "12345",
-    "sgbd": "MYSQL"
+    "sgbd": "MYSQL",
+    "tabela": [
+        {
+            "nome": "nome1",
+            "coluna": [
+                {
+                    "nome": "coluna11",
+                    "tipo": "tipo11"
+                },
+                {
+                    "nome": "coluna12",
+                    "tipo": "tipo12"
+                }
+            ]
+        },
+        {
+            "nome": "nome2",
+            "coluna": [
+                {
+                    "nome": "coluna21",
+                    "tipo": "tipo21"
+                },
+                {
+                    "nome": "coluna22",
+                    "tipo": "tipo22"
+                }
+            ]
+        }
+    ]
 }

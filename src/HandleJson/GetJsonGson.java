@@ -19,33 +19,50 @@ public class GetJsonGson {
 	        }
 	        System.out.println("Original Json ::"+sbuilderObj.toString());  
 	       
-	        
-	        
-	        //Gson Object
-	
-	    
+
 	        JsonObject gsonObj = new Gson().fromJson(sbuilderObj.toString(), JsonObject.class);
+
+
+	        System.out.println("-----------------------------");
+	        
+	        String databaseNome = gsonObj.get("nome").getAsString();
+	        String databaseUrl=  gsonObj.get("url").getAsString();
+	        String databasePorta = gsonObj.get("porta").getAsString();
+	        String databaseUsuario = gsonObj.get("usuario").getAsString();
+	        String databaseSenha = gsonObj.get("senha").getAsString();
+	        String databaseSGBD = gsonObj.get("sgbd").getAsString();
 	 
-	        String dtbNome = gsonObj.get("nome").getAsString();
-	        String dtbUrl=  gsonObj.get("url").getAsString();
-	        String dtbPorta = gsonObj.get("porta").getAsString();
-	 
-	        System.out.println("###### Emp Info Gson ############");
-	        System.out.println("Emp Name     : "+dtbNome);
-	        System.out.println("Emp Position : "+dtbUrl);
-	        System.out.println("Emp Age      : "+dtbPorta);
+	        System.out.println("###### Database ############");
+	        System.out.println("databaseNome     : "+databaseNome);
+	        System.out.println("databaseUrl : "+databaseUrl);
+	        System.out.println("databasePorta      : "+databasePorta);
+	        System.out.println("databaseUsuario      : "+databaseUsuario);
+	        System.out.println("databaseSenha      : "+databaseSenha);
+	        System.out.println("databaseSGBD      : "+databaseSGBD);
 	 
 	       
-//	        JsonArray jsonArray = gsonObj.getAsJsonArray("skills");
-//	        for (int i = 0; i < jsonArray.size(); i++) {
-//	            String programming = jsonArray.get(i).getAsJsonObject().get("programming").getAsString();
-//	            String scripting = jsonArray.get(i).getAsJsonObject().get("scripting").getAsString();
-//	            String ml = jsonArray.get(i).getAsJsonObject().get("ml").getAsString();
-//	            System.out.println("###### Emp Skills (nested) ###########");
-//	            System.out.println("Programming : "+programming);
-//	            System.out.println("Scripting   : "+scripting);
-//	            System.out.println("Ml          : "+ml);
-//	 
-//	        }
+	        //tabelas
+	        
+	        JsonArray tabela = gsonObj.getAsJsonArray("tabela");
+	        System.out.println("###### Array de Tabela ###########");
+	        for (int i = 0; i < tabela.size(); i++) {
+	        	
+	            String tabelaNome = tabela.get(i).getAsJsonObject().get("nome").getAsString();
+	            System.out.println("nomeTabela : "+tabelaNome);
+
+	            JsonArray coluna = tabela.get(i).getAsJsonObject().getAsJsonArray("coluna");
+	            
+	            //colunas
+	            for (int j = 0; j < coluna.size(); i++) {
+		            String colunaNome = coluna.get(j).getAsJsonObject().get("nome").getAsString();
+		            String colunaTipo = coluna.get(j).getAsJsonObject().get("tipo").getAsString();
+		            System.out.println("colunaNome : "+colunaNome);
+		            System.out.println("colunaTipo : "+colunaTipo);
+	            }
+	   	                 
+	            
+	        }
+	  
+	  
 	  }
 }
