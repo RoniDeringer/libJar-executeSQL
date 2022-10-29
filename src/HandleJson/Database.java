@@ -55,6 +55,26 @@ public class Database {
 	public void setTabela(ArrayList<Tabela> tabela) {
 		this.tabela = tabela;
 	}
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Database [nome=");
+		builder.append(nome);
+		builder.append(", url=");
+		builder.append(url);
+		builder.append(", porta=");
+		builder.append(porta);
+		builder.append(", usuario=");
+		builder.append(usuario);
+		builder.append(", senha=");
+		builder.append(senha);
+		builder.append(", sgbd=");
+		builder.append(sgbd);
+		builder.append(", tabela=");
+		builder.append(tabela);
+		builder.append("]");
+		return builder.toString();
+	}
 	
 
 

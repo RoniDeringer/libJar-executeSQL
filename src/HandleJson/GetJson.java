@@ -3,6 +3,7 @@ package HandleJson;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
@@ -22,42 +23,41 @@ public class GetJson {
 
 		JsonObject gsonObj = new Gson().fromJson(sbuilderObj.toString(), JsonObject.class);
 
-		System.out.println("-----------------------------");
-
-		String databaseNome = gsonObj.get("nome").getAsString();
-		String databaseUrl = gsonObj.get("url").getAsString();
-		String databasePorta = gsonObj.get("porta").getAsString();
-		String databaseUsuario = gsonObj.get("usuario").getAsString();
-		String databaseSenha = gsonObj.get("senha").getAsString();
-		String databaseSGBD = gsonObj.get("sgbd").getAsString();
-
-		System.out.println("###### Database ############");
-		System.out.println("databaseNome     : " + databaseNome);
-		System.out.println("databaseUrl : " + databaseUrl);
-		System.out.println("databasePorta      : " + databasePorta);
-		System.out.println("databaseUsuario      : " + databaseUsuario);
-		System.out.println("databaseSenha      : " + databaseSenha);
-		System.out.println("databaseSGBD      : " + databaseSGBD);
+		
+		Database database = new Database();
+	
+		database.setNome(gsonObj.get("nome").getAsString());
+		database.setUrl(gsonObj.get("url").getAsString());
+		database.setPorta( gsonObj.get("porta").getAsInt());
+		database.setUsuario(gsonObj.get("usuario").getAsString());
+		database.setSenha(gsonObj.get("senha").getAsString());
+		database.setSgbd(gsonObj.get("sgbd").getAsString());
+		
 
 		// tabelas
 
-		JsonArray tabela = gsonObj.getAsJsonArray("tabela");
+		JsonArray arrayTabelas = gsonObj.getAsJsonArray("tabela");
 
-		for (int i = 0; i < tabela.size(); i++) {
-			System.out.println("Tabela " + (i+1));
-			String tabelaNome = tabela.get(i).getAsJsonObject().get("nome").getAsString();
-			System.out.println("nomeTabela : " + tabelaNome);
-
-			JsonArray coluna = tabela.get(i).getAsJsonObject().getAsJsonArray("coluna");
+		for (int i = 0; i < arrayTabelas.size(); i++) {
+			Tabela tabela = new Tabela();
+			tabela.setNome(arrayTabelas.get(i).getAsJsonObject().get("nome").getAsString());
+			JsonArray arrayColunas = arrayTabelas.get(i).getAsJsonObject().getAsJsonArray("coluna");
 
 			// colunas
-			for (int j = 0; j < coluna.size(); j++) {
-				System.out.println("Coluna " + (j + 1));
-				String colunaNome = coluna.get(j).getAsJsonObject().get("nome").getAsString();
-				String colunaTipo = coluna.get(j).getAsJsonObject().get("tipo").getAsString();
-				System.out.println("colunaNome : " + colunaNome);
-				System.out.println("colunaTipo : " + colunaTipo);
+			
+			
+			ArrayList<Coluna> listColuna = new ArrayList<Coluna>();
+			
+			for (int j = 0; j < arrayColunas.size(); j++) {
+				Coluna coluna = new Coluna();
+				coluna.setNome(arrayColunas.get(j).getAsJsonObject().get("nome").getAsString());
+				coluna.setNotNull(arrayColunas.get(j).getAsJsonObject().get("isNotNull").getAsBoolean());
+				coluna.setTipo(arrayColunas.get(j).getAsJsonObject().get("tipo").getAsString());
+				
+				listColuna.add(coluna);
+				
 			}
+			tabela.setColuna(listColuna);
 
 		}
 

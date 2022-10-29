@@ -24,6 +24,18 @@ public class Coluna {
 	public void setNotNull(boolean isNotNull) {
 		this.isNotNull = isNotNull;
 	}
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Coluna [nome=");
+		builder.append(nome);
+		builder.append(", tipo=");
+		builder.append(tipo);
+		builder.append(", isNotNull=");
+		builder.append(isNotNull);
+		builder.append("]");
+		return builder.toString();
+	}
 	
 	
 	
