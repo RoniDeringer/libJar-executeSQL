@@ -10,22 +10,22 @@ public class teste {
 		String password = "";
 
 		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
 
 			Connection connection = DriverManager.getConnection(url, username, password);
-
 			Statement statement = connection.createStatement();
 
-			ResultSet resultSet = statement.executeQuery("select * from teste1");
+			
+			String dql = "create table teste3 (coluna3 int)";
 
-			while (resultSet.next()) {
-				System.out.println(resultSet.getInt(1));
-			}
+			
+			statement.executeUpdate(dql);
+			
 
-			connection.close();
-
-		} catch (Exception e) {
-			System.out.println(e);
+		} catch (SQLException ex) {
+			System.out.println("Erro de banco: "+ex);
+		}
+		catch (Exception e) {
+			System.out.println("Erro: "+ e);
 		}
 	}
 }
