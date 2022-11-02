@@ -11,7 +11,7 @@ public class DatabaseDAO {
 	PreparedStatement pstm;
 	
 	public void insertData(Database database) {
-		String dql = "create"
+		String dql = "create table teste2(coluna2 int);";
 	}
 	
 }

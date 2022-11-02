@@ -8,14 +8,14 @@ import java.sql.SQLException;
 public class ConnectionDAO {
 //https://www.devmedia.com.br/criando-uma-conexao-java-mysql-server/16753
 
-	public Connection connectionSQL() {
-		Connection conn = null;
+//	public Connection connectionSQL() {
+//		Connection conn = null;
 
-		Class.forName(jdbcDriver);
+//		Class.forName(jdbcDriver);
 		
-		String url = "jbdc:mysql://localhost:3306/nomeBanco?user=root&password=";
+//		String url = "jbdc:mysql://localhost:3306/nomeBanco?user=root&password=";
 		
-		return DriverManager.getConnection(url, "root", "");
+//		return DriverManager.getConnection(url, "root", "");
 		
 		/*
 		try {
@@ -35,4 +35,4 @@ public class ConnectionDAO {
 	}
 	
 
-}
+//}
