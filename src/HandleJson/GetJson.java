@@ -1,27 +1,34 @@
 package HandleJson;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
+import com.google.gson.*;
 
 public class GetJson {
-	public static void main(String[] args) throws IOException {
-		// Reading JSON from file system
-		BufferedReader br = new BufferedReader(
-				new FileReader("D:\\Users\\Roni\\3D Objects\\libJar-executeSQL\\generated_json_2022-10-19 02_45_28.json"));
+
+	private JsonObject generateGson() throws IOException {
+		BufferedReader br = new BufferedReader(new FileReader(
+				"D:\\Users\\Roni\\3D Objects\\libJar-executeSQL\\generated_json_2022-10-19 02_45_28.json"));
 		String line;
 		StringBuilder sbuilderObj = new StringBuilder();
 		while ((line = br.readLine()) != null) {
 			sbuilderObj.append(line);
 		}
-		System.out.println("Original Json ::" + sbuilderObj.toString());
+//		System.out.println("Original Json ::" + sbuilderObj.toString());
 
 		JsonObject gsonObj = new Gson().fromJson(sbuilderObj.toString(), JsonObject.class);
+		return gsonObj;
+	}
+	// Reading JSON from file system
+
+	
+	public Database populaObjeto() throws IOException {
+
+		JsonObject gsonObj = this.generateGson();
 
 		Database database = new Database();
 
@@ -35,7 +42,6 @@ public class GetJson {
 		// tabelas
 
 		JsonArray arrayTabelas = gsonObj.getAsJsonArray("tabela");
-
 		ArrayList<Tabela> listTabela = new ArrayList<Tabela>();
 
 		for (int i = 0; i < arrayTabelas.size(); i++) {
@@ -61,7 +67,7 @@ public class GetJson {
 
 		}
 		database.setTabela(listTabela);
-
-		System.out.println(database);
+		return database;
 	}
+
 }
