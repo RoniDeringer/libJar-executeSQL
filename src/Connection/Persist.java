@@ -5,6 +5,10 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.Iterator;
+
+import HandleJson.Tabela;
 
 public class Persist {
 	
@@ -23,18 +27,19 @@ public class Persist {
 		
 		
 		try {
-			
+
 			Connection connection = this.openConnection();
-			
+
 			Statement statement = connection.createStatement();
-			
-//			String sql = new GetSQL().getSql();
-			
-			String sql = "create table tabela5 (coluna5 int); create table tabela6(coluna31 int);";
-			
-			System.out.println(sql);
-			
-			statement.executeUpdate(sql);
+
+			ArrayList<String> listSQL = new GetSQL().getSql();
+
+			for (Iterator<String> iteratorSQL = listSQL.iterator(); iteratorSQL.hasNext();) {
+				String sql = iteratorSQL.next();
+				System.out.println(sql);
+				statement.executeUpdate(sql);
+
+			}
 			statement.close();
 
 		} catch (SQLException ex) {

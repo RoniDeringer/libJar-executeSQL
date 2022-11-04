@@ -11,20 +11,25 @@ import HandleJson.Tabela;
 
 public class GetSQL {
 	
-	public String getSql() {
-		String sql = "";
+	public ArrayList<String> listSQL;
+	
+	public ArrayList<String> getSql() {
+		
+		ArrayList<String> listSQL = new ArrayList<String>();
 		
 		try {
 			Database database = new GetJson().populaObjeto();
 			ArrayList<Tabela> listTabela = database.getTabela();
 			
 			//Adicionar as tabelas no sql
-			for (Iterator<Tabela> iteratorTabela = listTabela.iterator(); iteratorTabela.hasNext(); ) {
+			for (Iterator<Tabela> iteratorTabela = listTabela.iterator(); iteratorTabela.hasNext();) {
 				Tabela tabela = iteratorTabela.next();
-				   sql += "create table "+tabela.getNome();
-				   String sqlColuna = "";
+				String sql = "";
+				sql += "create table " + tabela.getNome();
+				String sqlColuna = "";
 				   
-				   // Adicionar as colunas no sql
+				  
+				// Adicionar as colunas no sql
 				   int contColuna = 0;
 				   
 					ArrayList<Coluna> listColuna = tabela.getColuna();
@@ -34,17 +39,23 @@ public class GetSQL {
 						if (contColuna != 0) {
 							sqlColuna += ", ";
 						}	
+						
 						sqlColuna += ""+coluna.getNome()+" "+coluna.getTipo();
 						
 						contColuna++;	
 					} // endFor Coluna
 					sql += " ("+sqlColuna+"); ";
+					
+					System.out.println(sql);
+					
+					listSQL.add(sql);
+					
 				} // endFor Tabela
 			} catch (IOException e) {
 			System.out.println("class GetSQL, method getSql. Error: "+e);
 		}
 		
-		return sql;
+		return listSQL;
 	}
 
 }
