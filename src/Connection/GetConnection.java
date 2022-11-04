@@ -6,7 +6,7 @@ import java.sql.*;
 import HandleJson.Database;
 import HandleJson.GetJson;
 
-public class OpenConnection {
+public class GetConnection {
 	
 	public String[] createConnection() throws IOException {
 
@@ -18,10 +18,9 @@ public class OpenConnection {
 		int porta = database.getPorta();
 
 		String urlConnection = "jdbc:mysql://localhost:" + porta + "/" + nomeDatabase;
-
 		String[] array = new String[3];
 		
-		array[0] = url;
+		array[0] = urlConnection;
 		array[1] = usuario;
 		array[2] = senha;
 

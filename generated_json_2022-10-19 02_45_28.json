@@ -1,32 +1,32 @@
 {
-    "nome": "alunos_ifc",
-    "url": "3000",
-    "porta": 3000,
+    "nome": "teste",
+    "url": "3306",
+    "porta": 3306,
     "usuario": "root",
-    "senha": "12345",
+    "senha": "",
     "sgbd": "MYSQL",
     "tabela": [
         {
-            "nome": "tabela1",
+            "nome": "tabela5",
             "coluna": [
                 {
-                    "nome": "coluna 1",
+                    "nome": "coluna5",
                     "tipo": "int",
                     "isNotNull": true
                 },
                 {
-                    "nome": "coluna 2",
+                    "nome": "coluna2",
                     "tipo": "varchar(45)",
                     "isNotNull": false
                 }
             ]
         },
         {
-            "nome": "tabela2",
+            "nome": "tabela6",
             "coluna": [
                 {
-                    "nome": "coluna3",
-                    "tipo": "bool",
+                    "nome": "coluna31",
+                    "tipo": "int",
                     "isNotNull": true
                 }
             ]
