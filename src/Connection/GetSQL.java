@@ -45,9 +45,6 @@ public class GetSQL {
 						contColuna++;	
 					} // endFor Coluna
 					sql += " ("+sqlColuna+"); ";
-					
-					System.out.println(sql);
-					
 					listSQL.add(sql);
 					
 				} // endFor Tabela
@@ -57,5 +54,4 @@ public class GetSQL {
 		
 		return listSQL;
 	}
-
 }

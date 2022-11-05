@@ -13,34 +13,19 @@ import HandleJson.Tabela;
 public class Persist {
 	
 	//posso fazer um database singleton
-	
-	public String getSQL() {
-		String sql = "";
-				
-		
-		
-		
-		return sql;
-	}
-	
 	public void execute() {
-		
-		
 		try {
-
 			Connection connection = this.openConnection();
 
 			Statement statement = connection.createStatement();
-
+			
 			ArrayList<String> listSQL = new GetSQL().getSql();
-
 			for (Iterator<String> iteratorSQL = listSQL.iterator(); iteratorSQL.hasNext();) {
 				String sql = iteratorSQL.next();
-				System.out.println(sql);
 				statement.executeUpdate(sql);
-
 			}
 			statement.close();
+			System.out.println("Dados salvos com sucesso!");
 
 		} catch (SQLException ex) {
 			System.out.println("Erro de banco: " + ex);
@@ -59,10 +44,6 @@ public class Persist {
 			String usuario = new GetConnection().createConnection()[1];
 			String senha = new GetConnection().createConnection()[2];
 			
-//			System.out.println(url);
-//			System.out.println(senha);
-//			System.out.println(usuario);
-
 			connection = DriverManager.getConnection(url, usuario, "");
 
 		} catch (IOException e) {
