@@ -12,6 +12,14 @@ import HandleJson.Tabela;
 
 public class Persist {
 	
+	public String filePath;
+	
+	public void setFilePath(String filePath){
+		 this.filePath = filePath;
+	}
+	
+	
+	
 	//posso fazer um database singleton
 	public void execute() {
 		try {
@@ -19,12 +27,16 @@ public class Persist {
 
 			Statement statement = connection.createStatement();
 			
-			ArrayList<String> listSQL = new GetSQL().getSql();
+			
+			GetSQL getsql = new GetSQL();
+			
+			ArrayList<String> listSQL = getsql.getSql();
 			for (Iterator<String> iteratorSQL = listSQL.iterator(); iteratorSQL.hasNext();) {
 				String sql = iteratorSQL.next();
-				statement.executeUpdate(sql);
+//				statement.executeUpdate(sql);
 			}
 			statement.close();
+			
 			System.out.println("Dados salvos com sucesso!");
 
 		} catch (SQLException ex) {

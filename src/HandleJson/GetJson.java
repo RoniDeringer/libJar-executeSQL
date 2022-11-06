@@ -11,8 +11,7 @@ import com.google.gson.*;
 public class GetJson {
 
 	private JsonObject generateGson() throws IOException {
-		BufferedReader br = new BufferedReader(new FileReader(
-				"D:\\Users\\Roni\\3D Objects\\libJar-executeSQL\\generated_json_2022-10-19 02_45_28.json"));
+		BufferedReader br = new BufferedReader(new FileReader("D:\\\\Users\\\\Roni\\\\3D Objects\\\\libJar-executeSQL\\\\generated_json_2022-10-19 02_45_28.json"));
 		String line;
 		StringBuilder sbuilderObj = new StringBuilder();
 		while ((line = br.readLine()) != null) {
