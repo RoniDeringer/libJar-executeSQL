@@ -7,7 +7,7 @@
     "sgbd": "MYSQL",
     "tabela": [
         {
-            "nome": "tabela9",
+            "nome": "tabela11",
             "coluna": [
                 {
                     "nome": "coluna5",
@@ -22,7 +22,7 @@
             ]
         },
         {
-            "nome": "tabela10",
+            "nome": "tabela12",
             "coluna": [
                 {
                     "nome": "coluna31",

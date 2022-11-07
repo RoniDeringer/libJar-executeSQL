@@ -33,7 +33,7 @@ public class Persist {
 			ArrayList<String> listSQL = getsql.getSql();
 			for (Iterator<String> iteratorSQL = listSQL.iterator(); iteratorSQL.hasNext();) {
 				String sql = iteratorSQL.next();
-//				statement.executeUpdate(sql);
+				statement.executeUpdate(sql);
 			}
 			statement.close();
 			
