@@ -20,13 +20,8 @@ class TabelaFormController extends AbstractController
     public function index(Request $request): Response
     {
         $tabela = new Tabela();
-
         $coluna1 = new Coluna();
-        $coluna2 = new Coluna();
-
         $tabela->getColunas()->add($coluna1);
-        $tabela->getColunas()->add($coluna2);
-
         $form = $this->createForm(TabelaForm::class, $tabela);
 
         $form->handleRequest($request);
