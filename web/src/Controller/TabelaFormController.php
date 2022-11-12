@@ -41,9 +41,9 @@ class TabelaFormController extends AbstractController
 
             $rota = 'newTable';
 
-            if($rota == 'newTable'){
+            if ($rota == 'newTable') {
                 $url = '/form/tabela';
-            }else{
+            } else {
                 $url = '/export';
             }
 

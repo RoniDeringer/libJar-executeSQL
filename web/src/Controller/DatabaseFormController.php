@@ -3,6 +3,8 @@
 namespace App\Controller;
 
 use App\Entity\Database;
+use App\Entity\Tabela;
+use App\Entity\Coluna;
 use App\Form\DatabaseForm;
 use App\Repository\DatabaseRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -17,9 +19,9 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 class DatabaseFormController extends AbstractController
 {
     /**
-     * @Route("/", name="formulario")
+     * @Route("/", name="database")
      */
-    public function index(Request $request)
+    public function index(Request $request): Response
     {
         $database = new Database();
         $form = $this->createForm(DatabaseForm::class, $database);
@@ -49,7 +51,6 @@ class DatabaseFormController extends AbstractController
         var_dump($request);
         // $json = $database->convertJson($database);
         // $database->downloadJson($json);
-
     }
 
 
