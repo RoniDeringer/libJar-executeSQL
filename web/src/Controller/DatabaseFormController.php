@@ -48,7 +48,7 @@ class DatabaseFormController extends AbstractController
      */
     public function exportJson(Request $request)
     {
-        var_dump($request);
+        echo 'asdasdassdadassdaasdsad';
         // $json = $database->convertJson($database);
         // $database->downloadJson($json);
     }

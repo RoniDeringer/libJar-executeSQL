@@ -16,7 +16,7 @@ class ColunaForm extends AbstractType
     {
         $builder
         ->add('nome', TextType::class, ['label' => 'Nome' ])
-        ->add('isNotNull', CheckboxType::class, ['label' => 'Not Null' ])
+        ->add('isNotNull', CheckboxType::class, ['label' => 'Not Null','required'   => false ])
         ;
     }
 

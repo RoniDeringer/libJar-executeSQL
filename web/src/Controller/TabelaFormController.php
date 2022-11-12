@@ -24,31 +24,22 @@ class TabelaFormController extends AbstractController
         $tabela->getColunas()->add($coluna1);
         $form = $this->createForm(TabelaForm::class, $tabela);
 
+
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            // ... do your form processing, like saving the Task and Tag entities
-        }
-
         if ($form->isSubmitted()) {
-            //proxima view  MEU OBJETO POPULADO, VAI JUNTO?
-            //salvar o objeto atual num array e criar um novo objeto
-
-            $rota = 'newTable';
-
-            if ($rota == 'newTable') {
-                $url = '/form/tabela';
-            } else {
+            if ($form->getClickedButton() === $form->get('exportJson')) {
                 $url = '/export';
+            } else {
+                $url = '/form/tabela';
             }
-
-
             header('Location: ' . $url);
-            exit;
+            exit; //pra que serve?
         }
+
 
         return $this->renderForm('form/tabela.html.twig', [
-        'form' => $form,
+        'form' => $form
         ]);
     }
 }
