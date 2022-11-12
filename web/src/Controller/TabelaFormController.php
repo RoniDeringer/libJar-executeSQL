@@ -15,32 +15,44 @@ use Symfony\Component\Routing\Annotation\Route;
 class TabelaFormController extends AbstractController
 {
     /**
-     * @Route("/form/tabela", name="tabela")
+     * @Route("/tabela", name="tabela")
      */
     public function index(Request $request): Response
     {
         $tabela = new Tabela();
-        $coluna1 = new Coluna();
-        $tabela->getColunas()->add($coluna1);
+        $coluna = new Coluna();
+        $tabela->getColunas()->add($coluna);
         $form = $this->createForm(TabelaForm::class, $tabela);
-
 
         $form->handleRequest($request);
 
         if ($form->isSubmitted()) {
-            if ($form->getClickedButton() === $form->get('exportJson')) {
-                $url = '/export';
-            } else {
-                $url = '/form/tabela';
-            }
-            header('Location: ' . $url);
-            exit; //pra que serve?
-        }
+            $data = $form->getData();
 
+            $url = $form->getClickedButton() === $form->get('exportJson') ? 'export' : '/form';
+
+            return $this->redirectToRoute($url, [$tabela]);
+
+            header('Location: ' . $url);
+            exit;
+        }
 
         return $this->renderForm('form/tabela.html.twig', [
         'form' => $form
         ]);
+    }
+
+
+    /**
+     * @Route("/export", name="export")
+     */
+    public function exportJson(Request $request)
+    {
+        // $teste = $this->getOptions(['context']);
+        var_dump($request->getContent()) ;
+
+        // $json = $database->convertJson($database);
+        // $database->downloadJson($json);
     }
 }
 

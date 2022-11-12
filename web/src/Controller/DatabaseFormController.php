@@ -29,7 +29,7 @@ class DatabaseFormController extends AbstractController
 
         if ($form->isSubmitted()) {
             //proxima view  MEU OBJETO POPULADO, VAI JUNTO?
-            $url = '/form/tabela';
+            $url = '/tabela';
             header('Location: ' . $url);
             exit;
         }
@@ -43,15 +43,6 @@ class DatabaseFormController extends AbstractController
         //5 . 18:00
     }
 
-    /**
-     * @Route("/export", name="formulario")
-     */
-    public function exportJson(Request $request)
-    {
-        echo 'asdasdassdadassdaasdsad';
-        // $json = $database->convertJson($database);
-        // $database->downloadJson($json);
-    }
 
 
 
