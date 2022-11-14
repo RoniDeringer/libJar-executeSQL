@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Coluna;
+use App\Entity\Database;
 use App\Entity\Tabela;
 use App\Form\ColunaForm;
 use App\Form\Submit;
@@ -29,12 +30,11 @@ class TabelaFormController extends AbstractController
         if ($form->isSubmitted()) {
             $data = $form->getData();
 
-            $url = $form->getClickedButton() === $form->get('exportJson') ? 'export' : '/form';
+            $url = $form->getClickedButton() === $form->get('exportJson') ? 'export' : 'form';
 
             return $this->redirectToRoute($url, [$tabela]);
-
-            header('Location: ' . $url);
-            exit;
+            // header('Location: ' . $url);
+            // exit;
         }
 
         return $this->renderForm('form/tabela.html.twig', [
@@ -46,13 +46,9 @@ class TabelaFormController extends AbstractController
     /**
      * @Route("/export", name="export")
      */
-    public function exportJson(Request $request)
+    public function exportJson(Request $request, Tabela $tabela)
     {
-        // $teste = $this->getOptions(['context']);
-        var_dump($request->getContent()) ;
-
-        // $json = $database->convertJson($database);
-        // $database->downloadJson($json);
+        var_dump($tabela);
     }
 }
 

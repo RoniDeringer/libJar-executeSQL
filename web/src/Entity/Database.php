@@ -15,6 +15,13 @@ use Symfony\Component\Serializer\Serializer;
  */
 class Database
 {
+      /**
+     * @ORM\Id
+     * @ORM\GeneratedValue
+     * @ORM\Column(type="integer")
+     */
+    private $id;
+
     /**
      * @ORM\Column(type="string", length=255)
      */
@@ -50,6 +57,11 @@ class Database
     public function __construct()
     {
         $this->tabela = new ArrayCollection();
+    }
+
+    public function getId(): ?int
+    {
+        return $this->id;
     }
 
     public function getNome()

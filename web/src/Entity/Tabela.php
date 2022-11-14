@@ -11,6 +11,13 @@ use Doctrine\Common\Collections\Collection;
  */
 class Tabela
 {
+   /**
+     * @ORM\Id
+     * @ORM\GeneratedValue
+     * @ORM\Column(type="integer")
+     */
+    private $id;
+
     /**
      * @ORM\Column(type="string", length=255)
      */
@@ -23,6 +30,12 @@ class Tabela
     public function __construct()
     {
         $this->coluna = new ArrayCollection();
+    }
+
+
+    public function getId(): ?int
+    {
+        return $this->id;
     }
 
     public function getNome()
