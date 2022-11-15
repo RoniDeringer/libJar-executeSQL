@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>parte2</title>
+</head>
+
+<body>
+    <section>
+        <div class="container">
+
+            <form id="database" action="">
+
+                <div class="database">
+                    <h2>Tabela</h2>
+                    <div class="input-container">
+                        <label for="name">Nome *</label>
+                        <input type="text" name="nome" id="nome" required>
+                    </div>
+                    <div class="button-position">
+                        <button type="submit">Enviar</button>
+                    </div>
+                </div>
+                <!--div tabela -->
+            </form>
+            <!--form tabela -->
+
+
+
+            <form id="coluna" action="">
+                <div class="endereco">
+                    <h2>Coluna</h2>
+                    <div class="input-container">
+                        <label for="cep">Nome *</label>
+                        <input type="text" name="cep" id="cep" maxlength="10" required>
+                    </div>
+                    <div class="input-container">
+                        <label for="logradouro">Tipo</label>
+                        <input type="text" name="logradouro" id="logradouro">
+                    </div>
+                    <div class="input-container col-md-4">
+                        <label for="numero">Not Null</label>
+                        <input type="text" name="numero" id="numero" required>
+                    </div>
+
+                    <div class="input-container col-md-8">
+                        <label for="complemento">PK</label>
+                        <input type="text" name="complemento" id="complemento">
+                    </div>
+                    <div class="input-container">
+                        <label for="bairro">Bairro</label>
+                        <input type="text" name="bairro" id="bairro">
+                        <span class="error"></span>
+                    </div>
+                    <div class="input-container col-md-8">
+                        <label for="cidade">cidade</label>
+                        <input type="text" name="cidade" id="cidade">
+                        <span class="error"></span>
+                    </div>
+                    <div class="input-container col-md-4">
+                        <label for="estado">estado</label>
+                        <input type="text" name="estado" id="estado">
+                        <span class="error"></span>
+                    </div>
+                    <div class="button-position">
+                        <button type="submit">Enviar</button>
+                    </div>
+                </div>
+                <!--div coluna -->
+            </form>
+            <!--form coluna -->
+
+        </div>
+    </section>
+
+</body>
+
+</html>
