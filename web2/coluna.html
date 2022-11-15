@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
@@ -7,10 +8,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>parte2</title>
 </head>
+<style>
+    .focoAtual {
+        background: #fdecb2;
+    }
+</style>
 
 <body>
     <section>
-        <div class="container">
+        <div class="container" id="principal">
 
             <form id="database" action="">
 
@@ -50,21 +56,6 @@
                         <label for="complemento">PK</label>
                         <input type="text" name="complemento" id="complemento">
                     </div>
-                    <div class="input-container">
-                        <label for="bairro">Bairro</label>
-                        <input type="text" name="bairro" id="bairro">
-                        <span class="error"></span>
-                    </div>
-                    <div class="input-container col-md-8">
-                        <label for="cidade">cidade</label>
-                        <input type="text" name="cidade" id="cidade">
-                        <span class="error"></span>
-                    </div>
-                    <div class="input-container col-md-4">
-                        <label for="estado">estado</label>
-                        <input type="text" name="estado" id="estado">
-                        <span class="error"></span>
-                    </div>
                     <div class="button-position">
                         <button type="submit">Enviar</button>
                     </div>
@@ -77,5 +68,41 @@
     </section>
 
 </body>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"
+    integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous">
+    </script>
+
+
+<script>
+
+    var $collectionHolder;
+    $(document).ready(function () {
+        $collectionHolder = $('#principal');
+        $collectionHolder.data('index', $collectionHolder.find('.panel').length)
+        $collectionHolder.find('.panel').each(function () {
+            footerBtns($(this));
+        });
+    });
+    function footerBtns($this) {
+        var $panelFooter = $('<div class="panel-footer"></div>');
+        var $btnRemoveColumn = $('<a href="#" class="btn btn-danger">Remove</a>');
+        var $btnAddColumn = $('<a href="#" class="btn btn-success">Nova Coluna</a>');
+        var $espaçoBtn = $('<a href="#"> </a>');
+        $panelFooter.append($btnRemoveColumn)
+        $panelFooter.append($espaçoBtn)
+        $panelFooter.append($btnAddColumn)
+        $btnAddColumn.click(function (e) {
+            newColumn()
+        });
+        $btnRemoveColumn.click(function (e) {
+            deleteColumn($(this), e)
+        });
+        $this.append($panelFooter)
+    }
+    function newColumn() {
+        $("#principal").clone().appendTo(principal)
+    }
+
+</script>
 
 </html>

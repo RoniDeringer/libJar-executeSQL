@@ -7,26 +7,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Database</title>
 </head>
+<style>
+    .focoAtual {
+        background: #fdecb2;
+    }
+</style>
 
 <body>
     <section>
         <div class="container">
-            <form id="database" action="">
+            <form action="Controller.php" method="post" id="database">
                 <div class="database">
                     <h2>Database</h2>
                     <div class="input-container">
                         <label for="name">Nome *</label>
                         <input type="text" name="nome" id="nome" required>
                     </div>
-
                     <div class="input-container">
                         <label for="url">URL *</label>
                         <input type="text" name="url" id="url" required>
                     </div>
-
                     <div class="input-container">
                         <label for="porta">Porta *</label>
                         <input type="number" name="porta" id="porta" required>
+                    </div>
+                    <div class="input-container">
+                        <label for="usuario">Usuário *</label>
+                        <input type="text" name="usuario" id="usuario" required>
+                    </div>
+                    <div class="input-container">
+                        <label for="senha">Senha *</label>
+                        <input type="text" name="senha" id="senha" required>
+                    </div>
+                    <div class="input-container">
+                        <label for="sgbd">SGBD *</label>
+                        <input type="text" name="sgbd" id="sgbd" required>
                     </div>
                     <div class="button-position">
                         <button type="submit">Enviar</button>
@@ -35,6 +50,12 @@
                 <!--div database -->
             </form>
             <!--form database -->
+
+            <form action="coluna.html">
+                <div class="button-position">
+                    <button type="submit">Proximo</button>
+                </div>
+            </form>
         </div>
     </section>
 
