@@ -1,7 +1,12 @@
 <!DOCTYPE html>
-
 <html lang="en">
 
+<?php
+session_start();
+
+var_dump($_SESSION['database']);
+
+?>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -23,8 +28,7 @@
                 <div class="database">
                     <h2>Tabela</h2>
                     <div class="input-container">
-                        <label for="name">Nome *</label>
-                        <input type="text" name="nome" id="nome" required>
+                        <input type="text" name="nome" id="nome" placeholder="Nome" required>
                     </div>
                     <div class="button-position">
                         <button type="submit">Enviar</button>
@@ -34,27 +38,33 @@
             </form>
             <!--form tabela -->
 
-
-
             <form id="coluna" action="">
                 <div class="endereco">
                     <h2>Coluna</h2>
                     <div class="input-container">
-                        <label for="cep">Nome *</label>
-                        <input type="text" name="cep" id="cep" maxlength="10" required>
+                        <input type="text" name="cep" id="cep"  placeholder="Nome"  required>
                     </div>
                     <div class="input-container">
-                        <label for="logradouro">Tipo</label>
-                        <input type="text" name="logradouro" id="logradouro">
-                    </div>
-                    <div class="input-container col-md-4">
-                        <label for="numero">Not Null</label>
-                        <input type="text" name="numero" id="numero" required>
+                        <label class="container">Tipo
+                            <select name="tipo">
+                                <option value="varchar">Varchar</option>
+                                <option value="int">Int</option>
+                            </select>
+                        </label>    
                     </div>
 
                     <div class="input-container col-md-8">
-                        <label for="complemento">PK</label>
-                        <input type="text" name="complemento" id="complemento">
+                        <label class="container">Not Null
+                            <input type="checkbox"name="notnull">
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+
+                    <div class="input-container col-md-8">
+                        <label class="container">PK
+                            <input type="checkbox" name="pk">
+                            <span class="checkmark"></span>
+                        </label>
                     </div>
                     <div class="button-position">
                         <button type="submit">Enviar</button>

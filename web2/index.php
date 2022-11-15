@@ -16,32 +16,32 @@
 <body>
     <section>
         <div class="container">
-            <form action="Controller.php" method="post" id="database">
+            <form action="Controller.php" method="post" name="database" id="database">
                 <div class="database">
                     <h2>Database</h2>
                     <div class="input-container">
-                        <label for="name">Nome *</label>
-                        <input type="text" name="nome" id="nome" required>
+                        <input type="text" name="nome" id="nome" placeholder="Nome" required>
                     </div>
                     <div class="input-container">
-                        <label for="url">URL *</label>
-                        <input type="text" name="url" id="url" required>
+                        <input type="text" name="url" id="url" placeholder="URL" required>
                     </div>
                     <div class="input-container">
-                        <label for="porta">Porta *</label>
-                        <input type="number" name="porta" id="porta" required>
+                        <input type="number" name="porta" id="porta" placeholder="Porta" required>
                     </div>
                     <div class="input-container">
-                        <label for="usuario">Usuário *</label>
-                        <input type="text" name="usuario" id="usuario" required>
+                        <input type="text" name="usuario" id="usuario"placeholder="Usuário" required>
                     </div>
                     <div class="input-container">
-                        <label for="senha">Senha *</label>
-                        <input type="text" name="senha" id="senha" required>
+                        <input type="text" name="senha" id="senha" placeholder="Senha" required>
                     </div>
                     <div class="input-container">
-                        <label for="sgbd">SGBD *</label>
-                        <input type="text" name="sgbd" id="sgbd" required>
+                        <label class="container">SGBD
+                            <select required name="sgbd">
+                                <option value="mysql">MySQL</option>
+                                <option value="postgresql">PostgreSQL</option>
+                                <option value="mongodb">MongoDB</option>
+                            </select>
+                        </label> 
                     </div>
                     <div class="button-position">
                         <button type="submit">Enviar</button>
@@ -50,12 +50,6 @@
                 <!--div database -->
             </form>
             <!--form database -->
-
-            <form action="coluna.html">
-                <div class="button-position">
-                    <button type="submit">Proximo</button>
-                </div>
-            </form>
         </div>
     </section>
 
