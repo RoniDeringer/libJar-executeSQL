@@ -9,110 +9,76 @@ session_start();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
     <title>parte2</title>
 </head>
-<style>
-    .focoAtual {
-        background: #fdecb2;
-    }
-</style>
-
 <body>
-    <section>
         <div class="container" id="principal">
 
-        <form action="Controller.php" method="POST" id="coluna">
-            <fieldset>
-                <legend>Tabela:</legend>
-                <div class="tabela">
-                    <h2>Tabela</h2>
-                    <div class="input-container">
-                        <input type="text" name="nome" id="nome" placeholder="Nome" required>
+        <form action="Controller.php" method="POST">
+
+            <div class="card text-white bg-primary mb-3">
+                <div class="card-header">Tabela</div>
+                <div class="card-body">
+
+                    <div class="form-group">
+                        <label for="nomeTabela">Nome da Tabela</label>
+                        <input type="text" class="form-control" name="nomeTabela" id="nomeTabela" aria-describedby="emailHelp" placeholder="Nome"required>
                     </div>
-                    <h1></h1>
                 </div>
-                <!--div tabela -->
-                <fieldset>
-                    <legend>Coluna:</legend>
-                    <div class="endereco">
-                        <h2>Coluna</h2>
-                        <div class="input-container">
-                            <input type="text" name="nome" id="nome"  placeholder="Nome"  required>
-                        </div>
+            </div>
+            <!--div tabela -->
+            <br>
 
-                        <div class="input-container">
-                            <label class="container">Tipo
-                                <select name="tipo">
-                                    <option value="varchar">Varchar</option>
-                                    <option value="int">Int</option>
-                                </select>
-                            </label>    
-                        </div>
-
-                        <div class="input-container col-md-8">
-                            <label class="container">Not Null
-                                <input type="checkbox" name="notnull">
-                            </label>
-                        </div>
-
-                        <div class="input-container col-md-8">
-                            <label class="container">PK
-                                <input type="checkbox" name="pk">
-                            </label>
-                        </div>
-
-                        <div class="button-position">
-                            <button type="submit">Enviar</button>
-                        </div>
+            <div class="card text-dark bg-info mb-3" id="coluna">
+                <div class="card-header">Coluna</div>
+                <div class="card-body">
+                
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="nomeColuna" id="nomeColuna" aria-describedby="emailHelp" placeholder="Nome da Coluna"required>
                     </div>
-                    <!--div coluna -->
-                </fieldset> 
-                <!-- fieldset Coluna -->
 
-            </fieldset>
-            <!-- fieldset Tabela -->
+                    <div class="form-group">
+                        <select class="form-select" name="tipo" aria-label="Default select example">
+                            <option selected value="varchar">VarChar</option>
+                            <option value="int">Int</option>
+                        </select>
+                    </div>
+                    <div class="form-check mb-3" >
+                        <input class="form-check-input" type="checkbox"  id="flexCheckDefault" name="notnull">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Not Null
+                        </label>
+                    </div>
+
+                    <div class="form-check mb-3" >
+                        <input class="form-check-input" type="checkbox"  id="flexCheckDefault" name="pk">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Primary Key
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <br><br> 
+           
+            <div class="d-grid gap-2 d-md-block">
+                <button class="btn btn-success" type="submit">Enviar</button>
+                <button class="btn btn-primary" type="button" id="addColumn">AddColumn</button>
+            </div>
+
         </form>
             <!--form coluna -->
 
         </div>
-    </section>
 
 </body>
-<script src="https://code.jquery.com/jquery-2.2.4.min.js"
-    integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous">
-    </script>
-
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>
-
-    var $collectionHolder;
-    $(document).ready(function () {
-        $collectionHolder = $('#principal');
-        $collectionHolder.data('index', $collectionHolder.find('.panel').length)
-        $collectionHolder.find('.panel').each(function () {
-            footerBtns($(this));
+    $(document).ready(function(){
+        $("#addColumn").click(function(){
+            $("#coluna" ).clone().appendTo("#coluna" );
         });
     });
-    function footerBtns($this) {
-        var $panelFooter = $('<div class="panel-footer"></div>');
-        var $btnRemoveColumn = $('<a href="#" class="btn btn-danger">Remove</a>');
-        var $btnAddColumn = $('<a href="#" class="btn btn-success">Nova Coluna</a>');
-        var $espaçoBtn = $('<a href="#"> </a>');
-        $panelFooter.append($btnRemoveColumn)
-        $panelFooter.append($espaçoBtn)
-        $panelFooter.append($btnAddColumn)
-        $btnAddColumn.click(function (e) {
-            newColumn()
-        });
-        $btnRemoveColumn.click(function (e) {
-            deleteColumn($(this), e)
-        });
-        $this.append($panelFooter)
-    }
-    function newColumn() {
-        $("#principal").clone().appendTo(principal)
-    }
-
 </script>
-
 </html>

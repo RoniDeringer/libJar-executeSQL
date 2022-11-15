@@ -15,7 +15,10 @@ if ($acao == "database") {
     header('Location: coluna.php');
 } else {
     $_SESSION['tabela'] = getTabela();
-    var_dump($_SESSION['tabela']);
+    // var_dump($_SESSION['tabela']);
+    $objeto = $_SESSION['database'];
+    $objeto->addTabela($_SESSION['tabela']);
+    var_dump($objeto);
 }
 
 
@@ -34,7 +37,7 @@ function getDatabase()
 function getTabela()
 {
     $coluna = new \Model\Coluna();
-    $coluna->nome = $_POST['nome'];
+    $coluna->nome = $_POST['nomeColuna'];
     $coluna->tipo = $_POST['tipo'];
 
     if (isset($_POST['notnull'])) {
@@ -46,7 +49,7 @@ function getTabela()
     }
 
     $tabela = new \Model\Tabela();
-    $tabela->nome = $_POST['nome'];
+    $tabela->nome = $_POST['nomeTabela'];
     $tabela->addColuna($coluna);
     return $tabela;
 }
