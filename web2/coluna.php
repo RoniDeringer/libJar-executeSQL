@@ -3,9 +3,7 @@
 
 <?php
 session_start();
-
-var_dump($_SESSION['database']);
-
+// var_dump($_SESSION['database']);
 ?>
 <head>
     <meta charset="UTF-8">
@@ -23,55 +21,57 @@ var_dump($_SESSION['database']);
     <section>
         <div class="container" id="principal">
 
-            <form id="database" action="">
-
-                <div class="database">
+        <form action="Controller.php" method="POST" id="coluna">
+            <fieldset>
+                <legend>Tabela:</legend>
+                <div class="tabela">
                     <h2>Tabela</h2>
                     <div class="input-container">
                         <input type="text" name="nome" id="nome" placeholder="Nome" required>
                     </div>
-                    <div class="button-position">
-                        <button type="submit">Enviar</button>
-                    </div>
+                    <h1></h1>
                 </div>
                 <!--div tabela -->
-            </form>
-            <!--form tabela -->
+                <fieldset>
+                    <legend>Coluna:</legend>
+                    <div class="endereco">
+                        <h2>Coluna</h2>
+                        <div class="input-container">
+                            <input type="text" name="nome" id="nome"  placeholder="Nome"  required>
+                        </div>
 
-            <form id="coluna" action="">
-                <div class="endereco">
-                    <h2>Coluna</h2>
-                    <div class="input-container">
-                        <input type="text" name="cep" id="cep"  placeholder="Nome"  required>
-                    </div>
-                    <div class="input-container">
-                        <label class="container">Tipo
-                            <select name="tipo">
-                                <option value="varchar">Varchar</option>
-                                <option value="int">Int</option>
-                            </select>
-                        </label>    
-                    </div>
+                        <div class="input-container">
+                            <label class="container">Tipo
+                                <select name="tipo">
+                                    <option value="varchar">Varchar</option>
+                                    <option value="int">Int</option>
+                                </select>
+                            </label>    
+                        </div>
 
-                    <div class="input-container col-md-8">
-                        <label class="container">Not Null
-                            <input type="checkbox"name="notnull">
-                            <span class="checkmark"></span>
-                        </label>
-                    </div>
+                        <div class="input-container col-md-8">
+                            <label class="container">Not Null
+                                <input type="checkbox" name="notnull">
+                            </label>
+                        </div>
 
-                    <div class="input-container col-md-8">
-                        <label class="container">PK
-                            <input type="checkbox" name="pk">
-                            <span class="checkmark"></span>
-                        </label>
+                        <div class="input-container col-md-8">
+                            <label class="container">PK
+                                <input type="checkbox" name="pk">
+                            </label>
+                        </div>
+
+                        <div class="button-position">
+                            <button type="submit">Enviar</button>
+                        </div>
                     </div>
-                    <div class="button-position">
-                        <button type="submit">Enviar</button>
-                    </div>
-                </div>
-                <!--div coluna -->
-            </form>
+                    <!--div coluna -->
+                </fieldset> 
+                <!-- fieldset Coluna -->
+
+            </fieldset>
+            <!-- fieldset Tabela -->
+        </form>
             <!--form coluna -->
 
         </div>

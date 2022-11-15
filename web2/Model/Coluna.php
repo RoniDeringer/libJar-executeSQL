@@ -7,6 +7,6 @@ class Coluna
     public $id;
     public $nome;
     public $tipo;
-    public $isNotNull;
-    public $isPK;
+    public $isNotNull = false;
+    public $isPK = false;
 }
