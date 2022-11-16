@@ -6,7 +6,6 @@ require_once "Model/Tabela.php";
 
 class Database
 {
-    public $id;
     public $nome;
     public $url;
     public $porta;

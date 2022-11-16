@@ -6,7 +6,6 @@ require_once "Model/Coluna.php";
 
 class Tabela
 {
-    public $id;
     public $nome;
     public $coluna;
 

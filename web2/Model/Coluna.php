@@ -4,7 +4,6 @@ namespace Model;
 
 class Coluna
 {
-    public $id;
     public $nome;
     public $tipo;
     public $isNotNull = false;

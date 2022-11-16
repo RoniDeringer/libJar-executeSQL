@@ -1,25 +1,38 @@
 <?php
 
-namespace src\Controller;
+namespace Controller;
 
 require_once "Model/Database.php";
 require_once "Model/Tabela.php";
 require_once "Model/Coluna.php";
 
 session_start();
+$acao = isset($_POST['button']) ? $_POST['button'] : '';
 
-$acao = isset($_POST['url']) ? 'database' : 'tabela';
+switch ($acao) {
+    case 'database':
+        $_SESSION['database'] = getDatabase();
+        header('Location: coluna.php');
+        break;
 
-if ($acao == "database") {
-    $_SESSION['database'] = getDatabase();
-    header('Location: coluna.php');
-} else {
-    $_SESSION['tabela'] = getTabela();
-    // var_dump($_SESSION['tabela']);
-    $objeto = $_SESSION['database'];
-    $objeto->addTabela($_SESSION['tabela']);
-    var_dump($objeto);
+    case 'newTable':
+        $_SESSION['database']->addTabela(getTabela());
+        header('Location: coluna.php');
+        break;
+
+    case 'exportJson':
+        $_SESSION['database']->addTabela(getTabela());
+        exportJson();
+        break;
+
+    case 'viewJson':
+        $_SESSION['database']->addTabela(getTabela());
+        header('Location: viewJson.php');
+        break;
 }
+
+//fazer um array quando recebe no nova tabela e no export
+
 
 
 function getDatabase()
@@ -37,8 +50,9 @@ function getDatabase()
 function getTabela()
 {
     $coluna = new \Model\Coluna();
-    $coluna->nome = $_POST['nomeColuna'];
-    $coluna->tipo = $_POST['tipo'];
+        $coluna->nome = $_POST["nomeColuna"];
+
+        $coluna->tipo = $_POST['tipo'];
 
     if (isset($_POST['notnull'])) {
         $coluna->isNotNull = true;
@@ -52,4 +66,26 @@ function getTabela()
     $tabela->nome = $_POST['nomeTabela'];
     $tabela->addColuna($coluna);
     return $tabela;
+}
+
+function exportJson()
+{
+    $json = convertJson($_SESSION['database']);
+
+    $filename = 'generated_json_' . date('Y-m-d H:i:s');
+
+    header("Content - type: application / vnd . ms - excel");
+    header("Content - Type: application / force - download");
+    header("Content - Type: application / download");
+    header("Content - disposition: " . $filename . " . json");
+    header("Content - disposition: filename = " . $filename . " . json");
+
+    print $json;
+    exit;
+}
+
+function convertJson($object)
+{
+    // var_dump(json_encode($object));
+    return json_encode($object);
 }
