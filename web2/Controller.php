@@ -12,12 +12,12 @@ $acao = isset($_POST['button']) ? $_POST['button'] : '';
 switch ($acao) {
     case 'database':
         $_SESSION['database'] = getDatabase();
-        header('Location: coluna.php');
+        header('Location: TabelaColunaForm.php');
         break;
 
     case 'newTable':
         $_SESSION['database']->addTabela(getTabela());
-        header('Location: coluna.php');
+        header('Location: TabelaColunaForm.php');
         break;
 
     case 'exportJson':
