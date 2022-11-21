@@ -24,7 +24,7 @@ session_start();
 
                         <div class="form-group">
                             <label for="nomeTabela">Nome da Tabela</label>
-                            <input type="text" class="form-control" name="nomeTabela" id="nomeTabela" aria-describedby="emailHelp" placeholder="Nome"required>
+                            <input type="text" class="form-control" name="nomeTabela" id="nomeTabela" placeholder="Nome"required>
                         </div>
                     </div>
                 </div>
@@ -37,23 +37,33 @@ session_start();
                         <div class="card-body">
                         
                             <div class="form-group">
-                                <input type="text" class="form-control" name="nomeColuna" id="nomeColuna" aria-describedby="emailHelp" placeholder="Nome da Coluna"required>
+                                <input type="text" class="form-control" name="nomeColuna[]" id="nomeColuna"  placeholder="Nome da Coluna"required>
                             </div>
+                            <br>
 
                             <div class="form-group">
-                                <select class="form-select" name="tipo" aria-label="Default select example">
+                            <label for="nomeTabela">Tipo:</label>
+                                <select class="form-select" name="tipo[]" aria-label="Default select example">
                                     <option selected value="varchar">VarChar</option>
                                     <option value="int">Int</option>
                                 </select>
                             </div>
 
-                            <div class="form-check mb-3" >
-                                <input class="form-check-input" type="checkbox"  id="flexCheckDefault" name="notnull">
-                                <label class="form-check-label" for="flexCheckDefault">
-                                    Not Null
-                                </label>
+                            <div class="form-group">
+                            <label for="nomeTabela">NotNull:</label>
+                                <select class="form-select" name="notnull[]" aria-label="Default select example">
+                                    <option selected value="false">Não</option>
+                                    <option value="true">Sim</option>
+                                </select>
                             </div>
 
+                            <div class="form-group">
+                            <label for="nomeTabela">Primary Key:</label>
+                                <select class="form-select" name="pk[]" aria-label="Default select example">
+                                    <option selected value="false">Não</option>
+                                    <option value="true">Sim</option>
+                                </select>
+                            </div>
 
                         </div><br>
                     </div>
@@ -75,6 +85,7 @@ session_start();
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>
     var stringHTML = $("#coluna").html()
+    var cont = 0
     $(document).ready(function(){
         $("#addColumn").click(function(){
             $(stringHTML).appendTo("#coluna");

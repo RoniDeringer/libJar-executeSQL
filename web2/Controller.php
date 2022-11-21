@@ -2,6 +2,8 @@
 
 namespace Controller;
 
+use LengthException;
+
 require_once "Model/Database.php";
 require_once "Model/Tabela.php";
 require_once "Model/Coluna.php";
@@ -49,22 +51,22 @@ function getDatabase()
 
 function getTabela()
 {
-    $coluna = new \Model\Coluna();
-        $coluna->nome = $_POST["nomeColuna"];
-
-        $coluna->tipo = $_POST['tipo'];
-
-    if (isset($_POST['notnull'])) {
-        $coluna->isNotNull = true;
-    }
-
-    if (isset($_POST['pk'])) {
-        $coluna->isPK = true;
-    }
-
     $tabela = new \Model\Tabela();
+
     $tabela->nome = $_POST['nomeTabela'];
-    $tabela->addColuna($coluna);
+
+    $lengthColumn = count($_POST['nomeColuna']);
+
+    for ($i = 0; $i < $lengthColumn; $i++) {
+        $coluna = new \Model\Coluna();
+        $coluna->nome = $_POST['nomeColuna'][$i];
+        $coluna->tipo = $_POST['tipo'][$i];
+        $coluna->isNotNull = $_POST['notnull'][$i];
+        $coluna->isPK = $_POST['pk'][$i];
+
+        $tabela->addColuna($coluna);
+    }
+
     return $tabela;
 }
 
