@@ -15,10 +15,11 @@ session_start();
 </head>
 <body>
         <div class="container" id="principal">
+        <br>
 
             <form action="Controller.php" method="POST">
 
-                <div class="card text-white bg-success mb-3" >
+                <div class="card border-success mb-3" >
                     <div class="card-header">Tabela</div>
                     <div class="card-body">
 
@@ -32,7 +33,7 @@ session_start();
                 <br>
 
                 <div id="coluna">
-                    <div class="card text-white bg-primary mb-3" name="formColuna[]">
+                    <div class="card border-primary mb-3" name="formColuna[]">
                         <div class="card-header">Coluna</div>
                         <div class="card-body">
                         
@@ -41,30 +42,30 @@ session_start();
                             </div>
                             <br>
 
-                            <div class="form-group">
-                            <label for="nomeTabela">Tipo:</label>
-                                <select class="form-select" name="tipo[]" aria-label="Default select example">
-                                    <option selected value="varchar">VarChar</option>
-                                    <option value="int">Int</option>
-                                    <option value="date">Date</option>
-                                    <option value="bool">Boolean</option>
+                            <div class="row g-3">
+                                <div class="col-sm-7">
+                                    <label for="nomeTabela">Tipo:</label>
+                                    <select class="form-select" name="tipo[]" aria-label="Default select example">
+                                        <option selected value="varchar">VarChar</option>
+                                        <option value="int">Int</option>
+                                        <option value="date">Date</option>
+                                        <option value="bool">Boolean</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm">
+                                    <label for="nomeTabela">NotNull:</label>
+                                    <select class="form-select" name="notnull[]" aria-label="Default select example">
+                                        <option selected value="false">Não</option>
+                                        <option value="true">Sim</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm">
+                                    <label for="nomeTabela">Primary Key:</label>
+                                    <select class="form-select" name="pk[]" aria-label="Default select example">
+                                        <option selected value="false">Não</option>
+                                        <option value="true">Sim</option>
                                 </select>
-                            </div>
-
-                            <div class="form-group">
-                            <label for="nomeTabela">NotNull:</label>
-                                <select class="form-select" name="notnull[]" aria-label="Default select example">
-                                    <option selected value="false">Não</option>
-                                    <option value="true">Sim</option>
-                                </select>
-                            </div>
-
-                            <div class="form-group">
-                            <label for="nomeTabela">Primary Key:</label>
-                                <select class="form-select" name="pk[]" aria-label="Default select example">
-                                    <option selected value="false">Não</option>
-                                    <option value="true">Sim</option>
-                                </select>
+                                </div>
                             </div>
 
                         </div><br>
