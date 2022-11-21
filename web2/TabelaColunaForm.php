@@ -46,6 +46,8 @@ session_start();
                                 <select class="form-select" name="tipo[]" aria-label="Default select example">
                                     <option selected value="varchar">VarChar</option>
                                     <option value="int">Int</option>
+                                    <option value="date">Date</option>
+                                    <option value="bool">Boolean</option>
                                 </select>
                             </div>
 

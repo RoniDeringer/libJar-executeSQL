@@ -76,11 +76,11 @@ function exportJson()
 
     $filename = 'generated_json_' . date('Y-m-d H:i:s');
 
-    header("Content - type: application / vnd . ms - excel");
-    header("Content - Type: application / force - download");
-    header("Content - Type: application / download");
-    header("Content - disposition: " . $filename . " . json");
-    header("Content - disposition: filename = " . $filename . " . json");
+    header("Content-type: application/vnd.ms-excel");
+    header("Content-Type: application/force-download");
+    header("Content-Type: application/download");
+    header("Content-disposition: " . $filename . ".json");
+    header("Content-disposition: filename=" . $filename . ".json");
 
     print $json;
     exit;
