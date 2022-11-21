@@ -27,6 +27,10 @@ switch ($acao) {
         exportJson();
         break;
 
+    case 'exportJsonByViewJson':
+        exportJson();
+        break;
+
     case 'viewJson':
         $_SESSION['database']->addTabela(getTabela());
         header('Location: viewJson.php');

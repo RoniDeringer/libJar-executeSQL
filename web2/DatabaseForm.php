@@ -50,6 +50,10 @@
                             <option selected value="mysql">MySQL</option>
                             <option value="postgresql">PostgreSQL</option>
                             <option value="mongodb">MongoDB</option>
+                            <option value="oracle">Oracle</option>
+                            <option value="sqlserver">SQL Server</option>
+                            <option value="sqllite">SQL Lite</option>
+                            <option value="mariadb">MariaDB</option>
                         </select>
                     </div>
                     <br>
