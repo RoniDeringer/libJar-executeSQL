@@ -19,7 +19,7 @@ $json = convertJson($_SESSION['database']);
 </head>
 
 <body>
-    <div class="container">
+    <div class="container-md">
         <div class="card text-dark bg-light" style="max-width: 40rem;">
             <div class="card-header">JSON</div>
             <div class="card-body">

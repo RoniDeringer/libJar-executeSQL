@@ -67,6 +67,7 @@ function getTabela()
         $coluna->tipo = $_POST['tipo'][$i];
         $coluna->isNotNull = $_POST['notnull'][$i];
         $coluna->isPK = $_POST['pk'][$i];
+        $coluna->isAI = $_POST['ai'][$i];
 
         $tabela->addColuna($coluna);
     }

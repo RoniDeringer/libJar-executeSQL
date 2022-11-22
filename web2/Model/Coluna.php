@@ -8,4 +8,5 @@ class Coluna
     public $tipo;
     public $isNotNull = false;
     public $isPK = false;
+    public $isAI = false;
 }

@@ -42,8 +42,8 @@ session_start();
                             </div>
                             <br>
 
-                            <div class="row g-3">
-                                <div class="col-sm-7">
+                            <div class="row g-4">
+                                <div class="col-sm-6">
                                     <label for="nomeTabela">Tipo:</label>
                                     <select class="form-select" name="tipo[]" aria-label="Default select example">
                                         <option selected value="varchar">VarChar</option>
@@ -62,6 +62,14 @@ session_start();
                                 <div class="col-sm">
                                     <label for="nomeTabela">Primary Key:</label>
                                     <select class="form-select" name="pk[]" aria-label="Default select example">
+                                        <option selected value="false">Não</option>
+                                        <option value="true">Sim</option>
+                                </select>
+                                </div>
+
+                                <div class="col-sm">
+                                    <label for="nomeTabela">Auto Increment:</label>
+                                    <select class="form-select" name="ai[]" aria-label="Default select example">
                                         <option selected value="false">Não</option>
                                         <option value="true">Sim</option>
                                 </select>
