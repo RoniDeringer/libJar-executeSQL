@@ -52,12 +52,9 @@ public class GetSQL {
                         sqlColuna +=" AUTO_INCREMENT";
                     }
                     
-                    
-                    
                     contColuna++;
                 } // endFor Coluna
                 sql += " (" + sqlColuna + "); ";
-                System.out.println(sql);
                 listSQL.add(sql);
 
             } // endFor Tabela
