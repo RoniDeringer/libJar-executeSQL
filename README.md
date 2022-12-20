@@ -76,7 +76,7 @@ $ `composer install`
                     "nome": "string",
                     "tipo": "string",
                     "isNotNull": true,
-                    "isPK": true
+                    "isPK": true,
                     "isAI": true
                 }
             ]
