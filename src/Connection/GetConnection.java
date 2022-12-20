@@ -1,16 +1,17 @@
 package Connection;
 
+import HandleJson.ChoiceDatabase;
 import java.io.IOException;
 import java.sql.*;
 
 import HandleJson.Database;
-import HandleJson.GetJson;
+import HandleJson.GetJsonMysql;
 
 public class GetConnection {
 	
 	public String[] createConnection() throws IOException {
 
-		Database database = new GetJson().populaObjeto();
+		Database database = new ChoiceDatabase().ChoiceDatabase();
 		String nomeDatabase = database.getNome();
 		String usuario = database.getUsuario();
 		String senha = database.getSenha();
