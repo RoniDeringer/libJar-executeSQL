@@ -37,12 +37,27 @@ public class GetSQL {
                     if (contColuna != 0) {
                         sqlColuna += ", ";
                     }
-
+                    System.out.println("teste");
                     sqlColuna += "" + coluna.getNome() + " " + coluna.getTipo();
 
+                    if(coluna.isIsPK()== true){
+                        sqlColuna +=" PRIMARY KEY";
+                    }
+                    
+                    if(coluna.isIsNotNull()== true){
+                        sqlColuna +=" NOT NULL";
+                    }
+                    
+                    if(coluna.isIsAI()== true){
+                        sqlColuna +=" AUTO_INCREMENT";
+                    }
+                    
+                    
+                    
                     contColuna++;
                 } // endFor Coluna
                 sql += " (" + sqlColuna + "); ";
+                System.out.println(sql);
                 listSQL.add(sql);
 
             } // endFor Tabela

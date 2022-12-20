@@ -17,10 +17,7 @@ public class GetJsonMysql implements GetJsonInterface {
         database.setUsuario(gson.get("usuario").getAsString());
         database.setSenha(gson.get("senha").getAsString());
         database.setSgbd(gson.get("sgbd").getAsString());
-        
-        System.out.println("teste");
-        System.out.println(database);
-        
+
         // tabelas
         JsonArray arrayTabelas = gson.getAsJsonArray("tabela");
         ArrayList<Tabela> listTabela = new ArrayList<Tabela>();
@@ -36,8 +33,10 @@ public class GetJsonMysql implements GetJsonInterface {
             for (int j = 0; j < arrayColunas.size(); j++) {
                 Coluna coluna = new Coluna();
                 coluna.setNome(arrayColunas.get(j).getAsJsonObject().get("nome").getAsString());
-                coluna.setNotNull(arrayColunas.get(j).getAsJsonObject().get("isNotNull").getAsBoolean());
                 coluna.setTipo(arrayColunas.get(j).getAsJsonObject().get("tipo").getAsString());
+                coluna.setIsNotNull(arrayColunas.get(j).getAsJsonObject().get("isNotNull").getAsBoolean());
+                coluna.setIsAI(arrayColunas.get(j).getAsJsonObject().get("isAI").getAsBoolean());
+                coluna.setIsPK(arrayColunas.get(j).getAsJsonObject().get("isPK").getAsBoolean());
 
                 listColuna.add(coluna);
 

@@ -7,17 +7,21 @@
     "sgbd": "MYSQL",
     "tabela": [
         {
-            "nome": "zz4",
+            "nome": "zz7",
             "coluna": [
                 {
-                    "nome": "coluna5123",
+                    "nome": "coluna1",
                     "tipo": "int",
-                    "isNotNull": true
+                    "isNotNull": true,
+                    "isPK": true,
+                    "isAI": true
                 },
                 {
                     "nome": "coluna2",
                     "tipo": "varchar(45)",
-                    "isNotNull": false
+                    "isNotNull": false,
+                    "isPK": false,
+                    "isAI": false
                 }
             ]
         }
