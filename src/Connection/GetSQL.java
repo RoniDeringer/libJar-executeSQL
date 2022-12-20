@@ -37,7 +37,6 @@ public class GetSQL {
                     if (contColuna != 0) {
                         sqlColuna += ", ";
                     }
-                    System.out.println("teste");
                     sqlColuna += "" + coluna.getNome() + " " + coluna.getTipo();
 
                     if(coluna.isIsPK()== true){

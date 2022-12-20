@@ -21,7 +21,6 @@ public class Persist {
     public void execute() {
         try {
             Connection connection = OpenConnection.getInstance().createConnection();
-
             Statement statement = connection.createStatement();
 
             GetSQL getsql = new GetSQL();
